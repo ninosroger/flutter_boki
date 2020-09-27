@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
@@ -9,10 +12,15 @@ class TabPage extends StatefulWidget {
   _TabPageState createState() => _TabPageState();
 }
 
+///pink[200]
+///blue[300]
+///orange[300]
+///grey[800]
+///bottom_item grey[700]
 class _TabPageState extends State<TabPage> {
   int selectedIndex = 0;
   int badge = 0;
-  var padding = EdgeInsets.symmetric(horizontal: 20, vertical: 5);
+  var padding = EdgeInsets.symmetric(horizontal: 18, vertical: 5);
   double gap = 10;
 
   PageController controller = PageController();
@@ -20,6 +28,15 @@ class _TabPageState extends State<TabPage> {
   @override
   void initState() {
     super.initState();
+    //设置android状态栏为透明的沉浸
+    if (Platform.isAndroid) {
+      // 以下两行 设置android状态栏为透明的沉浸。写在组件渲染之后，是为了在渲染后进行set赋值，覆盖状态栏，写在渲染之前
+      // MaterialApp组件会覆盖掉这个值。
+      SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
+          statusBarColor: Colors.transparent,
+          statusBarIconBrightness: Brightness.dark);
+      SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+    }
   }
 
   @override
@@ -27,14 +44,6 @@ class _TabPageState extends State<TabPage> {
     return MaterialApp(
       home: Scaffold(
         extendBody: true,
-        appBar: AppBar(
-          brightness: Brightness.light,
-          title: Text(
-            '簿记岛',
-            style: TextStyle(color: Colors.white),
-          ),
-          backgroundColor: Colors.pink[200],
-        ),
         body: PageView.builder(
           onPageChanged: (page) {
             setState(() {
@@ -44,7 +53,9 @@ class _TabPageState extends State<TabPage> {
           },
           controller: controller,
           itemBuilder: (context, position) {
-            return Container();
+            return Container(
+              color: Colors.white,
+            );
           },
           itemCount: 4,
         ),
@@ -70,7 +81,7 @@ class _TabPageState extends State<TabPage> {
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
                       backgroundColor: Colors.pink[200],
-                      iconSize: 24,
+                      iconSize: 20,
                       padding: padding,
                       icon: AntDesign.home,
                       text: '首页',
@@ -81,7 +92,7 @@ class _TabPageState extends State<TabPage> {
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
                       backgroundColor: Colors.pink[200],
-                      iconSize: 24,
+                      iconSize: 20,
                       padding: padding,
                       icon: AntDesign.hearto,
                       text: '喜欢',
@@ -92,7 +103,7 @@ class _TabPageState extends State<TabPage> {
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
                       backgroundColor: Colors.pink[200],
-                      iconSize: 24,
+                      iconSize: 20,
                       padding: padding,
                       icon: AntDesign.search1,
                       text: '搜索',
@@ -103,11 +114,11 @@ class _TabPageState extends State<TabPage> {
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
                       backgroundColor: Colors.pink[200],
-                      iconSize: 24,
+                      iconSize: 20,
                       padding: padding,
                       icon: AntDesign.smileo,
                       leading: CircleAvatar(
-                          radius: 12,
+                          radius: 10,
                           backgroundColor: Colors.pink[200],
                           backgroundImage: NetworkImage(
                               "https://www.keaidian.com/uploads/allimg/190427/27154730_0.jpeg")),
