@@ -31,6 +31,10 @@ dependencies:
   flutter_icons: ^1.1.0
   google_nav_bar: ^3.0.0
   expandable_bottom_bar: ^1.0.2
+  fish_redux: ^0.3.4
+  fluro: ^1.6.3
+  dio: ^3.0.10
+  lottie: ^0.6.0
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +55,9 @@ flutter:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
+
+  assets:
+    - assets/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

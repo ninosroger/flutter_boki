@@ -5,18 +5,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-void main() => runApp(TabPage());
+import 'application.dart';
+
+void main() => runApp(createApp());
 
 class TabPage extends StatefulWidget {
   @override
   _TabPageState createState() => _TabPageState();
 }
 
-///pink[200]
-///blue[300]
-///orange[300]
-///grey[800]
-///bottom_item grey[700]
 class _TabPageState extends State<TabPage> {
   int selectedIndex = 0;
   int badge = 0;
@@ -72,50 +69,35 @@ class _TabPageState extends State<TabPage> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
               child: GNav(
+                  gap: 10,
                   curve: Curves.easeOutExpo,
+                  iconSize: 20,
+                  activeColor: Colors.white,
+                  padding: padding,
+                  tabBackgroundColor: Colors.pink[200],
                   duration: Duration(milliseconds: 800),
                   tabs: [
                     GButton(
-                      gap: gap,
-                      iconActiveColor: Colors.white,
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
-                      backgroundColor: Colors.pink[200],
-                      iconSize: 20,
-                      padding: padding,
                       icon: AntDesign.home,
                       text: '首页',
                     ),
                     GButton(
-                      gap: gap,
-                      iconActiveColor: Colors.white,
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
-                      backgroundColor: Colors.pink[200],
-                      iconSize: 20,
-                      padding: padding,
                       icon: AntDesign.hearto,
                       text: '喜欢',
                     ),
                     GButton(
-                      gap: gap,
-                      iconActiveColor: Colors.white,
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
-                      backgroundColor: Colors.pink[200],
-                      iconSize: 20,
-                      padding: padding,
                       icon: AntDesign.search1,
                       text: '搜索',
                     ),
                     GButton(
-                      gap: gap,
-                      iconActiveColor: Colors.white,
                       iconColor: Colors.pink[200],
                       textColor: Colors.white,
-                      backgroundColor: Colors.pink[200],
-                      iconSize: 20,
-                      padding: padding,
                       icon: AntDesign.smileo,
                       leading: CircleAvatar(
                           radius: 10,
