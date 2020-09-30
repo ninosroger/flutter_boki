@@ -1,10 +1,9 @@
 import 'package:fish_redux/fish_redux.dart';
 
-//TODO replace with your own action
-enum IndexAction { action }
+enum IndexAction { onChangeTabItem }
 
 class IndexActionCreator {
-  static Action onAction() {
-    return const Action(IndexAction.action);
+  static Action onChangeTabItem(int index) {
+    return Action(IndexAction.onChangeTabItem, payload: index);
   }
 }

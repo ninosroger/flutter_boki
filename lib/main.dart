@@ -7,6 +7,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 import 'application.dart';
 
+///程序入口
 void main() => runApp(createApp());
 
 class TabPage extends StatefulWidget {

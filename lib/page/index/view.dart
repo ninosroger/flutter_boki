@@ -65,7 +65,10 @@ Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
                   text: '新之助',
                 )
               ],
-              onTabChange: (index) {}),
+              selectedIndex: state.selectedIndex,
+              onTabChange: (index) {
+                dispatch(IndexActionCreator.onChangeTabItem(index));
+              }),
         ),
       ),
     ),

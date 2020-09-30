@@ -6,7 +6,7 @@ class Routes {
   static String home = "/home";
 
   static Router configureRoutes() {
-    var router = Router();
+    final router = Router();
     router.define(root, handler: indexHandler);
     return router;
   }

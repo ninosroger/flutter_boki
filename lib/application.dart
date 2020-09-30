@@ -2,27 +2,28 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boki/page/index/page.dart';
-import 'package:flutter_boki/route/route_config.dart';
 import 'package:flutter_boki/route/routes.dart';
 
-Widget createApp() {
-  RouteConfig.router = Routes.configureRoutes();
+import 'global_variable.dart';
 
-  //设置android状态栏为透明的沉浸
+Widget createApp() {
+  ///设置android状态栏颜色和模式
   if (Platform.isAndroid) {
-    // 以下两行 设置android状态栏为透明的沉浸。写在组件渲染之后，是为了在渲染后进行set赋值，覆盖状态栏，写在渲染之前
-    // MaterialApp组件会覆盖掉这个值。
     SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(
-        statusBarColor: Colors.transparent,
-        statusBarIconBrightness: Brightness.dark);
+        statusBarColor: Colors.pink[200],
+        statusBarIconBrightness: Brightness.light);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
 
+  ///路由对象
+  GlobalVar.router = Routes.configureRoutes();
+
+  ///路由注册后默认加载路径为'/'的页面，此处省略home
   return MaterialApp(
     title: "簿记岛",
+    //debug标识去掉
     debugShowCheckedModeBanner: false,
-    home: IndexPage().buildPage(null),
-    onGenerateRoute: RouteConfig.router.generator,
+    //注册路由
+    onGenerateRoute: GlobalVar.router.generator,
   );
 }

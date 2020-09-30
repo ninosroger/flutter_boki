@@ -1,17 +1,18 @@
 import 'package:fish_redux/fish_redux.dart';
 
+import '../../global_variable.dart';
 import 'action.dart';
 import 'state.dart';
 
 Reducer<IndexState> buildReducer() {
   return asReducer(
     <Object, Reducer<IndexState>>{
-      IndexAction.action: _onAction,
+      IndexAction.onChangeTabItem: _onChangeTabItem,
     },
   );
 }
 
-IndexState _onAction(IndexState state, Action action) {
-  final IndexState newState = state.clone();
-  return newState;
+IndexState _onChangeTabItem(IndexState state, Action action) {
+  state.selectedIndex = action.payload;
+  return state.clone();
 }
