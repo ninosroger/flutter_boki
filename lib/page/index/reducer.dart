@@ -1,6 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
 
-import '../../global_variable.dart';
 import 'action.dart';
 import 'state.dart';
 

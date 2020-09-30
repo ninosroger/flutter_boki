@@ -60,8 +60,7 @@ Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
                   leading: CircleAvatar(
                       radius: 10,
                       backgroundColor: Colors.pink[200],
-                      backgroundImage: NetworkImage(
-                          "https://www.keaidian.com/uploads/allimg/190427/27154730_0.jpeg")),
+                      backgroundImage: AssetImage("assets/avatar.jpeg")),
                   text: '新之助',
                 )
               ],
