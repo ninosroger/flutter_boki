@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../global_field.dart';
 
-class FluroRouter {
+class FluroNavigator {
   static void push(BuildContext context, String path,
       {bool replace = false, bool clearStack = false}) {
     unfocus();
