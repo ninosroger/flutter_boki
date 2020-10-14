@@ -10,7 +10,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
       body: Stack(
         children: <Widget>[
           SafeArea(
-            child: Lottie.asset('assets/pink_top.json'),
+            child: Lottie.asset('assets/lottie/pink_top.json'),
           )
         ],
       ));
