@@ -1,5 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
-// import 'reducer.dart';
+import 'package:flutter_boki/global_store/reducer.dart';
 import 'state.dart';
 
 /// 建立一个AppStore
@@ -7,6 +7,6 @@ import 'state.dart';
 class GlobalStore {
   static Store<GlobalState> _globalStore;
 
-  // static Store<GlobalState> get store =>
-  //     _globalStore ??= createStore<GlobalState>(GlobalState(), buildReducer());
+  static Store<GlobalState> get store =>
+      _globalStore ??= createStore<GlobalState>(GlobalState(), buildReducer());
 }

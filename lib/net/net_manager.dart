@@ -2,9 +2,9 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_boki/common/global_field.dart';
 import 'package:flutter_boki/entity/root_data.dart';
 
-import '../global_field.dart';
 import 'net_error.dart';
 
 int _connectTimeout = 15000;

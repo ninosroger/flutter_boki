@@ -1,7 +1,6 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-
-import '../global_field.dart';
+import 'package:flutter_boki/common/global_field.dart';
 
 class FluroNavigator {
   static void push(BuildContext context, String path,

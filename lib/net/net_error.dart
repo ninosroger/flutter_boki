@@ -71,8 +71,6 @@ extension DioErrorTypeExtension on DioErrorType {
     ExceptionHandle.connect_timeout_error,
     ExceptionHandle.send_timeout_error,
     ExceptionHandle.receive_timeout_error,
-    0,
     ExceptionHandle.cancel_error,
-    0,
   ][index];
 }

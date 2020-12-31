@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:sprintf/sprintf.dart';
+import 'package:flutter_boki/common/global_field.dart';
 
-import '../global_field.dart';
 import 'net_error.dart';
 
 class LoggingInterceptor extends Interceptor {
@@ -58,18 +57,8 @@ class AdapterInterceptor extends Interceptor {
   Response adapterData(Response response) {
     String result;
     String content = response.data?.toString() ?? '';
-
     if (response.statusCode == ExceptionHandle.success) {
-      result = content;
     } else {
-      try {
-        result = sprintf(
-            _keyFailureFormat, [response.statusCode, response.statusCode]);
-      } catch (e) {
-        GlobalField.logger.d('异常信息：$e');
-        result = sprintf(_keyFailureFormat,
-            [response.statusCode, '服务器异常(${response.statusCode})']);
-      }
     }
     response.statusCode = ExceptionHandle.success;
     response.data = result;
