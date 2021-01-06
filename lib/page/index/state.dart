@@ -1,11 +1,18 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_boki/global_store/state.dart';
+import 'package:flutter_boki/resources/colors.dart';
 
-class IndexState implements Cloneable<IndexState> {
+class IndexState implements GlobalBaseState, Cloneable<IndexState> {
   int selectedIndex = 0;
 
   @override
+  ThemeColors themeColors;
+
+  @override
   IndexState clone() {
-    return IndexState()..selectedIndex = selectedIndex;
+    return IndexState()
+      ..selectedIndex = selectedIndex
+      ..themeColors = themeColors;
   }
 }
 

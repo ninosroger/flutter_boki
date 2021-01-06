@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_boki/common/global_field.dart';
-
 import 'net_error.dart';
 
 class LoggingInterceptor extends Interceptor {

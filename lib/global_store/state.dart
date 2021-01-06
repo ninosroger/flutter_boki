@@ -1,17 +1,16 @@
-import 'dart:ui';
-
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter_boki/resources/colors.dart';
 
-abstract class BaseState {
-  Color themeColor;
+abstract class GlobalBaseState {
+  ThemeColors themeColors;
 }
 
-class GlobalState implements BaseState, Cloneable<GlobalState> {
+class GlobalState implements GlobalBaseState, Cloneable<GlobalState> {
   @override
-  Color themeColor;
+  ThemeColors themeColors;
 
   @override
   GlobalState clone() {
-    return GlobalState();
+    return GlobalState()..themeColors = themeColors;
   }
 }

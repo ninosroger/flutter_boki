@@ -29,10 +29,6 @@ dependencies:
   cupertino_icons: ^0.1.3
   #flutter图标库
   flutter_icons: ^1.1.0
-  #底部导航栏widget
-  google_nav_bar: ^3.0.0
-  #底部可展wigget
-  expandable_bottom_bar: ^1.0.2
   #fish redux框架
   fish_redux: ^0.3.4
   #fluro路由
@@ -55,6 +51,12 @@ dependencies:
   sqflite: ^1.3.2+1
   #本地路径
   path: ^1.7.0
+  #侧边drawer
+  drawerbehavior: ^1.1.4
+  #滚动
+  carousel_slider: ^2.3.1
+  #指示器
+  dots_indicator: ^1.2.0
 
 dev_dependencies:
   flutter_test:
