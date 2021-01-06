@@ -53,6 +53,7 @@ Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
             label: '我的',
           ),
         ],
+        backgroundColor: state.themeColors.white,
         type: BottomNavigationBarType.fixed,
         iconSize: 30.0,
         selectedItemColor: state.themeColors.red,
