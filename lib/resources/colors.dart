@@ -8,6 +8,8 @@ class ThemeColors {
   Color white = Color(0xFFFFFFFF);
   Color black = Color(0xFF333333);
   Color lightGreen = Color(0xFF93D047);
+  Color gray = Color(0xFFC0C3D0);
+  Color lightGray = Color(0xFFF3EBEC);
 }
 
 ///亮色模式主题色
@@ -18,7 +20,9 @@ ThemeColors lightColors() => ThemeColors()
   ..yellow = Color(0xFFFBB663)
   ..white = Color(0xFFFFFFFF)
   ..black = Color(0xFF333333)
-  ..lightGreen = Color(0xFF93D047);
+  ..lightGreen = Color(0xFF93D047)
+  ..gray = Color(0xFFC0C3D0)
+  ..lightGray = Color(0xFFF3EBEC);
 
 ///暗色模式主题色
 ThemeColors darkColors() => ThemeColors()
@@ -28,4 +32,6 @@ ThemeColors darkColors() => ThemeColors()
   ..yellow = Color(0xFFB8741A)
   ..white = Color(0xFFFFFFFF)
   ..black = Color(0xFFCED3E9)
-  ..lightGreen = Color(0xFF00998F);
+  ..lightGreen = Color(0xFF00998F)
+  ..gray = Color(0xFFC0C3D0)
+  ..lightGray = Color(0xFFF3EBEC);

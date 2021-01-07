@@ -6,12 +6,13 @@ import 'state.dart';
 Reducer<IndexState> buildReducer() {
   return asReducer(
     <Object, Reducer<IndexState>>{
-      IndexAction.onChangeTabItem: _onChangeTabItem,
+      IndexAction.onChangeBottomNavigationItem: _onChangeBottomNavigationItem,
     },
   );
 }
 
-IndexState _onChangeTabItem(IndexState state, Action action) {
-  state.selectedIndex = action.payload;
-  return state.clone();
+IndexState _onChangeBottomNavigationItem(IndexState state, Action action) {
+  return state.clone()
+    ..selectedIndex = action.payload
+    ..pageController.jumpToPage(action.payload);
 }

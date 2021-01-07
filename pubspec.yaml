@@ -57,6 +57,8 @@ dependencies:
   carousel_slider: ^2.3.1
   #指示器
   dots_indicator: ^1.2.0
+  #google字体
+  google_fonts: ^1.1.1
 
 dev_dependencies:
   flutter_test:

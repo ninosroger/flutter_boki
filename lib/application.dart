@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'common/global_field.dart';
 
 Widget createApp() {
@@ -15,5 +16,8 @@ Widget createApp() {
     },
     //注册路由
     onGenerateRoute: GlobalField.router.generator,
+    theme: ThemeData(
+      textTheme: GoogleFonts.notoSansTextTheme()
+    ),
   );
 }

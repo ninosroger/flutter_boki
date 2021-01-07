@@ -1,9 +1,9 @@
 import 'package:fish_redux/fish_redux.dart';
 
-enum IndexAction { onChangeTabItem }
+enum IndexAction { onChangeBottomNavigationItem }
 
 class IndexActionCreator {
-  static Action onChangeTabItem(int index) {
-    return Action(IndexAction.onChangeTabItem, payload: index);
+  static Action onChangeBottomNavigationItem(int index) {
+    return Action(IndexAction.onChangeBottomNavigationItem, payload: index);
   }
 }
