@@ -36,6 +36,8 @@ Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
         home.buildPage(null),
       ],
       controller: state.pageController,
+      //统一滑动效果，同iOS越界回弹
+      // physics: const PageScrollPhysics(parent: const BouncingScrollPhysics()),
       physics: NeverScrollableScrollPhysics(),
     ),
     floatingActionButton: Container(
@@ -61,15 +63,6 @@ Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
         color: state.themeColors.white,
       ),
     ),
-    // FloatingActionButton(
-    //   onPressed: () => null,
-    //   backgroundColor: state.themeColors.red,
-    //   child: Icon(
-    //     Icons.add_sharp,
-    //     size: 28,
-    //     color: state.themeColors.white,
-    //   ),
-    // ),
     floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
     floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     bottomNavigationBar: SafeArea(

@@ -19,6 +19,8 @@ class Gaps {
   static const Widget hSpace32 = SizedBox(width: 32);
   static const Widget hSpace40 = SizedBox(width: 40);
   static const Widget hSpace50 = SizedBox(width: 50);
+  static const Widget hSpace60 = SizedBox(width: 60);
+  static const Widget hSpace70 = SizedBox(width: 70);
 
   /// 垂直间隔
   static const Widget vSpace2 = SizedBox(height: 2);
@@ -37,6 +39,8 @@ class Gaps {
   static const Widget vSpace32 = SizedBox(height: 32);
   static const Widget vSpace40 = SizedBox(height: 40);
   static const Widget vSpace50 = SizedBox(height: 50);
+  static const Widget vSpace60 = SizedBox(height: 60);
+  static const Widget vSpace70 = SizedBox(height: 70);
 
   static const Widget empty = SizedBox.shrink();
 }
