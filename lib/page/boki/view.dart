@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(OwnState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(BokiState state, Dispatch dispatch, ViewService viewService) {
   return Container(
-    color: state.themeColors.red,
+    color: state.themeColors.yellow,
   );
 }

@@ -59,6 +59,8 @@ dependencies:
   dots_indicator: ^1.2.0
   #google字体
   google_fonts: ^1.1.1
+  #google字体
+  provider: ^4.3.2+3
 
 dev_dependencies:
   flutter_test:

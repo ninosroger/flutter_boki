@@ -2,16 +2,16 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_boki/global_store/state.dart';
 import 'package:flutter_boki/resources/colors.dart';
 
-class OwnState implements GlobalBaseState, Cloneable<OwnState> {
+class BokiState implements GlobalBaseState, Cloneable<BokiState> {
   @override
-  OwnState clone() {
-    return OwnState()..themeColors = themeColors;
+  BokiState clone() {
+    return BokiState()..themeColors = themeColors;
   }
 
   @override
   ThemeColors themeColors;
 }
 
-OwnState initState(Map<String, dynamic> args) {
-  return OwnState();
+BokiState initState(Map<String, dynamic> args) {
+  return BokiState();
 }

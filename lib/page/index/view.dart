@@ -2,8 +2,12 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boki/global_store/state.dart';
 import 'package:flutter_boki/global_store/store.dart';
+import 'package:flutter_boki/page/boki/page.dart';
+import 'package:flutter_boki/page/chart/page.dart';
 import 'package:flutter_boki/page/home/page.dart';
+import 'package:flutter_boki/page/own/page.dart';
 import 'package:flutter_boki/resources/dimens.dart';
+import 'package:flutter_boki/resources/gaps.dart';
 import 'package:flutter_boki/resources/styles.dart';
 
 import 'action.dart';
@@ -12,7 +16,55 @@ import 'state.dart';
 Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
   var iconSize = 30.0;
   var home = HomePage();
+  var chart = ChartPage();
+  var boki = BokiPage();
+  var own = OwnPage();
   home.connectExtraStore<GlobalState>(
+    GlobalStore.store,
+    (Object pageState, GlobalState appState) {
+      final GlobalBaseState gbs = pageState;
+      if (gbs.themeColors != appState.themeColors) {
+        if (pageState is Cloneable) {
+          final Object copy = pageState.clone();
+          final GlobalBaseState newState = copy;
+          newState.themeColors = appState.themeColors;
+          return newState;
+        }
+      }
+      return pageState;
+    },
+  );
+  chart.connectExtraStore<GlobalState>(
+    GlobalStore.store,
+    (Object pageState, GlobalState appState) {
+      final GlobalBaseState gbs = pageState;
+      if (gbs.themeColors != appState.themeColors) {
+        if (pageState is Cloneable) {
+          final Object copy = pageState.clone();
+          final GlobalBaseState newState = copy;
+          newState.themeColors = appState.themeColors;
+          return newState;
+        }
+      }
+      return pageState;
+    },
+  );
+  boki.connectExtraStore<GlobalState>(
+    GlobalStore.store,
+    (Object pageState, GlobalState appState) {
+      final GlobalBaseState gbs = pageState;
+      if (gbs.themeColors != appState.themeColors) {
+        if (pageState is Cloneable) {
+          final Object copy = pageState.clone();
+          final GlobalBaseState newState = copy;
+          newState.themeColors = appState.themeColors;
+          return newState;
+        }
+      }
+      return pageState;
+    },
+  );
+  own.connectExtraStore<GlobalState>(
     GlobalStore.store,
     (Object pageState, GlobalState appState) {
       final GlobalBaseState gbs = pageState;
@@ -31,9 +83,10 @@ Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
     body: PageView(
       children: <Widget>[
         home.buildPage(null),
-        home.buildPage(null),
-        home.buildPage(null),
-        home.buildPage(null),
+        chart.buildPage(null),
+        Gaps.empty,
+        boki.buildPage(null),
+        own.buildPage(null),
       ],
       controller: state.pageController,
       //统一滑动效果，同iOS越界回弹

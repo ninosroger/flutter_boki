@@ -10,6 +10,7 @@ class ThemeColors {
   Color lightGreen = Color(0xFF93D047);
   Color gray = Color(0xFFC0C3D0);
   Color lightGray = Color(0xFFF3EBEC);
+  Color drawerBackground = Color(0xFFE0E2E8);
 }
 
 ///亮色模式主题色
@@ -22,6 +23,7 @@ ThemeColors lightColors() => ThemeColors()
   ..black = Color(0xFF333333)
   ..lightGreen = Color(0xFF93D047)
   ..gray = Color(0xFFC0C3D0)
+  ..drawerBackground = Color(0xFFE0E2E8)
   ..lightGray = Color(0xFFF3EBEC);
 
 ///暗色模式主题色
@@ -34,4 +36,5 @@ ThemeColors darkColors() => ThemeColors()
   ..black = Color(0xFFCED3E9)
   ..lightGreen = Color(0xFF00998F)
   ..gray = Color(0xFFC0C3D0)
+  ..drawerBackground = Color(0xFFE0E2E8)
   ..lightGray = Color(0xFFF3EBEC);

@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter_boki/page/index/page.dart';
 import 'package:flutter_boki/page/navigation/page.dart';
+import 'package:flutter_boki/page/splash/page.dart';
 import 'package:flutter_boki/route/router_handlers.dart';
 
 class Routers {
@@ -12,7 +13,7 @@ class Routers {
     final router = Router();
     router.define(root, handler: getPageHandler(IndexPage()));
     // router.define(root, handler: getPageHandler(SplashPage()));
-    router.define(index, handler: getPageHandler(IndexPage()));
+    // router.define(index, handler: getPageHandler(IndexPage()));
     router.define(navigation, handler: getPageHandler(NavigationPage()));
     return router;
   }
