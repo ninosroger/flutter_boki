@@ -11,6 +11,12 @@ class ThemeColors {
   Color gray = Color(0xFFC0C3D0);
   Color lightGray = Color(0xFFF3EBEC);
   Color drawerBackground = Color(0xFFE0E2E8);
+  Color chartRed = Color(0xFFFFB0CD);
+  Color chartPink = Color(0xFFFDCFDF);
+  Color chartGreen = Color(0xFFCFF6CF);
+  Color chartBlue = Color(0xFFC2F0FC);
+  Color chartPurple = Color(0xFFC3AED6);
+  Color chartYellow = Color(0xFFFFD1BD);
 }
 
 ///亮色模式主题色
