@@ -11,9 +11,8 @@ class Routers {
 
   static Router configureRouters() {
     final router = Router();
-    router.define(root, handler: getPageHandler(IndexPage()));
-    // router.define(root, handler: getPageHandler(SplashPage()));
-    // router.define(index, handler: getPageHandler(IndexPage()));
+    router.define(root, handler: getPageHandler(SplashPage()));
+    router.define(index, handler: getPageHandler(IndexPage()));
     router.define(navigation, handler: getPageHandler(NavigationPage()));
     return router;
   }

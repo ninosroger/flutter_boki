@@ -17,7 +17,7 @@ Widget createApp() {
     //注册路由
     onGenerateRoute: GlobalField.router.generator,
     theme: ThemeData(
-      textTheme: GoogleFonts.notoSansTextTheme()
+      textTheme: GoogleFonts.notoSansTextTheme(),
     ),
   );
 }

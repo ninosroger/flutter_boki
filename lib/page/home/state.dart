@@ -15,6 +15,10 @@ class HomeState implements GlobalBaseState, Cloneable<HomeState> {
   AnimationController topController;
   Animation topAnimation;
 
+  //cell平移
+  AnimationController cellMoveController;
+  Animation cellMoveAnimation;
+
   //card平移
   AnimationController cardMoveController;
   Animation cardMoveAnimation;
@@ -68,6 +72,8 @@ class HomeState implements GlobalBaseState, Cloneable<HomeState> {
       ..hoverOffsetInfoIndex = hoverOffsetInfoIndex
       ..titles = titles
       ..data = data
+      ..cellMoveAnimation = cellMoveAnimation
+      ..cellMoveController = cellMoveController
       ..lastOffset = lastOffset;
   }
 

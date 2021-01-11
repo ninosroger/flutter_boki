@@ -8,6 +8,7 @@ import 'package:flutter_boki/resources/dimens.dart';
 import 'package:flutter_boki/resources/gaps.dart';
 import 'package:flutter_boki/resources/styles.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -201,53 +202,59 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
       ],
     ),
   );
-  var incomeExpenditureCell = Container(
-      height: 64,
-      color: state.themeColors.white,
-      padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-      child: Column(
-        children: [
-          Container(
-            height: 59.4,
-            child: Row(
-              children: [
-                Image.asset(
-                  "assets/images/icon_income_expenditure5.png",
-                  width: 30,
-                  height: 30,
-                ),
-                Gaps.hSpace10,
-                Text(
-                  '早餐-支付宝',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: Dimens.font14,
-                    color: state.themeColors.black,
+  var incomeExpenditureCell = SlideAnimation(
+    horizontalOffset: 200.0,
+    child: FadeInAnimation(
+      child: Container(
+        height: 64,
+        color: state.themeColors.white,
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+        child: Column(
+          children: [
+            Container(
+              height: 59.4,
+              child: Row(
+                children: [
+                  Image.asset(
+                    "assets/images/icon_income_expenditure5.png",
+                    width: 30,
+                    height: 30,
                   ),
-                ),
-                Expanded(
-                  child: Gaps.hSpace20,
-                ),
-                Text(
-                  '-22.51',
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontSize: Dimens.font16,
-                    color: state.themeColors.red,
+                  Gaps.hSpace10,
+                  Text(
+                    '早餐-支付宝',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: Dimens.font14,
+                      color: state.themeColors.black,
+                    ),
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Gaps.hSpace20,
+                  ),
+                  Text(
+                    '-22.51',
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: Dimens.font16,
+                      color: state.themeColors.red,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Divider(
-            color: state.themeColors.lightGray,
-            height: 0.6,
-            indent: 40,
-          )
-        ],
-      ));
+            Divider(
+              color: state.themeColors.lightGray,
+              height: 0.6,
+              indent: 40,
+            )
+          ],
+        ),
+      ),
+    ),
+  );
   return ChangeNotifierProvider(
     create: (ctx) {
       return state.hoverVM;
@@ -369,35 +376,43 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                           MediaQuery.of(viewService.context).padding.top,
                       child: Stack(
                         children: <Widget>[
-                          CustomScrollView(
-                            controller: state.scrollController,
-                            slivers: List.generate(
-                              state.titles.length,
-                              (titleIndex) {
-                                String title = state.titles[titleIndex];
-                                List<String> dataList = state.data[title];
-                                return SliverList(
-                                  delegate: SliverChildBuilderDelegate(
-                                      (ctx, cellIndex) {
-                                    if (cellIndex == 0) {
-                                      if (title.isEmpty)
-                                        return Container(
-                                          height: 0,
-                                        );
-                                      else
-                                        return incomeExpenditureHeader;
-                                    } else {
-                                      if (title.isEmpty)
-                                        return incomeExpenditureView;
-                                      else {
-                                        int fixIndex = cellIndex - 1;
-                                        String data = dataList[fixIndex];
-                                        return incomeExpenditureCell;
+                          AnimationLimiter(
+                            child: CustomScrollView(
+                              controller: state.scrollController,
+                              slivers: List.generate(
+                                state.titles.length,
+                                (titleIndex) {
+                                  String title = state.titles[titleIndex];
+                                  List<String> dataList = state.data[title];
+                                  return SliverList(
+                                    delegate: SliverChildBuilderDelegate(
+                                        (ctx, cellIndex) {
+                                      if (cellIndex == 0) {
+                                        if (title.isEmpty)
+                                          return Container(
+                                            height: 0,
+                                          );
+                                        else
+                                          return incomeExpenditureHeader;
+                                      } else {
+                                        if (title.isEmpty)
+                                          return incomeExpenditureView;
+                                        else {
+                                          int fixIndex = cellIndex - 1;
+                                          String data = dataList[fixIndex];
+                                          return AnimationConfiguration
+                                              .staggeredList(
+                                            position: cellIndex,
+                                            duration: const Duration(
+                                                milliseconds: 500),
+                                            child: incomeExpenditureCell,
+                                          );
+                                        }
                                       }
-                                    }
-                                  }, childCount: dataList.length + 1),
-                                );
-                              },
+                                    }, childCount: dataList.length + 1),
+                                  );
+                                },
+                              ),
                             ),
                           ),
                           Consumer(

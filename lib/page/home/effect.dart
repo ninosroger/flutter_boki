@@ -70,6 +70,17 @@ void _init(Action action, Context<HomeState> ctx) {
     ),
   );
 
+  ctx.state.cellMoveController = AnimationController(
+      duration: Duration(milliseconds: 400), vsync: tickerProvider);
+  ctx.state.cellMoveAnimation =
+      Tween<Offset>(begin: Offset(1.5, 0), end: Offset.zero).animate(
+    CurvedAnimation(
+      parent: ctx.state.cellMoveController,
+      curve: Curves.easeIn,
+    ),
+  );
+  ctx.state.cellMoveController.forward();
+
   ///列表
   ctx.state.titles = ctx.state.data.keys.toList();
   ctx.state.hoverOffsetInfoList.clear();

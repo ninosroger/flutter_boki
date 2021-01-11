@@ -2,6 +2,7 @@ import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_boki/resources/dimens.dart';
+import 'package:flutter_boki/resources/styles.dart';
 import 'package:lottie/lottie.dart';
 
 import 'action.dart';
@@ -31,7 +32,7 @@ Widget buildView(
                 margin: EdgeInsets.all(20),
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: state.themeColors.red,
+                  gradient: Styles.linearGradientYellowToRedForLight,
                   borderRadius: BorderRadius.circular(17),
                   boxShadow: [
                     BoxShadow(
