@@ -6,7 +6,13 @@ import 'package:flutter_boki/page/home/hover_offset_info.dart';
 import 'package:flutter_boki/resources/colors.dart';
 
 class ChartState implements GlobalBaseState, Cloneable<ChartState> {
-  int touchPieIndex = 0;
+  List<String> tabs = ["支出", "收入"];
+  TabController tabController;
+
+  int touchPieIndex = -1;
+  var isPieChart = true;
+  var isMonthBtnSelect = true;
+  var hasHideChart = false;
 
   HoverHeaderVM hoverVM = HoverHeaderVM();
   ScrollController scrollController = ScrollController();
@@ -33,6 +39,8 @@ class ChartState implements GlobalBaseState, Cloneable<ChartState> {
   ChartState clone() {
     return ChartState()
       ..themeColors = themeColors
+      ..isPieChart = isPieChart
+      ..isMonthBtnSelect = isMonthBtnSelect
       ..touchPieIndex = touchPieIndex
       ..hoverVM = hoverVM
       ..scrollController = scrollController
@@ -40,6 +48,9 @@ class ChartState implements GlobalBaseState, Cloneable<ChartState> {
       ..hoverOffsetInfoIndex = hoverOffsetInfoIndex
       ..titles = titles
       ..lastOffset = lastOffset
+      ..tabs = tabs
+      ..tabController = tabController
+      ..hasHideChart = hasHideChart
       ..data = data;
   }
 
@@ -48,5 +59,6 @@ class ChartState implements GlobalBaseState, Cloneable<ChartState> {
 }
 
 ChartState initState(Map<String, dynamic> args) {
-  return ChartState();
+  var state = ChartState();
+  return state;
 }

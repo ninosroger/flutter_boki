@@ -379,6 +379,8 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                           AnimationLimiter(
                             child: CustomScrollView(
                               controller: state.scrollController,
+                              //统一滑动效果，同iOS越界回弹
+                              physics: const PageScrollPhysics(parent: const BouncingScrollPhysics()),
                               slivers: List.generate(
                                 state.titles.length,
                                 (titleIndex) {

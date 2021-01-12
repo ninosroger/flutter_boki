@@ -14,7 +14,7 @@ import 'action.dart';
 import 'state.dart';
 
 Widget buildView(IndexState state, Dispatch dispatch, ViewService viewService) {
-  var iconSize = 30.0;
+  var iconSize = 28.0;
   var home = HomePage();
   var chart = ChartPage();
   var boki = BokiPage();

@@ -153,13 +153,13 @@ void _init(Action action, Context<HomeState> ctx) {
             ///(endOffset
             ///超过endOffset，切换到下一个offsetInfo
             ctx.state.hoverOffsetInfoIndex++;
-            if (ctx.state.hoverOffsetInfoIndex == 1)
-              ctx.state.cardMoveController.forward();
             if (ctx.state.hoverOffsetInfoIndex >=
                 ctx.state.hoverOffsetInfoList.length) {
               ctx.state.hoverOffsetInfoIndex =
                   ctx.state.hoverOffsetInfoList.length - 1;
             }
+            if (ctx.state.hoverOffsetInfoIndex == 1)
+              ctx.state.cardMoveController.forward();
             ctx.state.hoverVM.update(offsetInfo.index, 0);
           } else {
             /// [startOffset,endOffset]
@@ -183,11 +183,11 @@ void _init(Action action, Context<HomeState> ctx) {
             /// 切换到上一个offsetInfo
             ///其实就是offset小于上一个offsetInfo的endOffset的情况
             ctx.state.hoverOffsetInfoIndex--;
-            if (ctx.state.hoverOffsetInfoIndex == 0)
-              ctx.state.smallMoveController.reverse();
             if (ctx.state.hoverOffsetInfoIndex < 0) {
               ctx.state.hoverOffsetInfoIndex = 0;
             }
+            if (ctx.state.hoverOffsetInfoIndex == 0)
+              ctx.state.smallMoveController.reverse();
             ctx.state.hoverVM.update(offsetInfo.prevIndex, 0);
           }
         }

@@ -1,4 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
+import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_boki/page/home/hover_offset_info.dart';
 
 import 'action.dart';
@@ -13,6 +14,14 @@ Effect<ChartState> buildEffect() {
 }
 
 void _init(Action action, Context<ChartState> ctx) {
+  ctx.state.tabController =
+      TabController(length: ctx.state.tabs.length, vsync: ScrollableState());
+  ctx.state.tabController.addListener(() {
+    ctx.state.hoverOffsetInfoIndex = 0;
+    ctx.state.lastOffset = 0;
+    ctx.dispatch(ChartActionCreator.onChangeChartShowStatus(false));
+  });
+
   ///列表
   ctx.state.titles = ctx.state.data.keys.toList();
   ctx.state.hoverOffsetInfoList.clear();
@@ -20,7 +29,7 @@ void _init(Action action, Context<ChartState> ctx) {
 
   ///第一段为收入支出wight
   double sectionStartOffset = totalOffset;
-  double sectionOffset = 170;
+  double sectionOffset = 270;
   double startOffset = sectionOffset + totalOffset;
   double endOffset = startOffset;
   totalOffset += sectionOffset;
@@ -90,6 +99,8 @@ void _init(Action action, Context<ChartState> ctx) {
               ctx.state.hoverOffsetInfoIndex =
                   ctx.state.hoverOffsetInfoList.length - 1;
             }
+            if (ctx.state.hoverOffsetInfoIndex == 1)
+              ctx.dispatch(ChartActionCreator.onChangeChartShowStatus(true));
             ctx.state.hoverVM.update(offsetInfo.index, 0);
           } else {
             /// [startOffset,endOffset]
@@ -116,6 +127,8 @@ void _init(Action action, Context<ChartState> ctx) {
             if (ctx.state.hoverOffsetInfoIndex < 0) {
               ctx.state.hoverOffsetInfoIndex = 0;
             }
+            if (ctx.state.hoverOffsetInfoIndex == 0)
+              ctx.dispatch(ChartActionCreator.onChangeChartShowStatus(false));
             ctx.state.hoverVM.update(offsetInfo.prevIndex, 0);
           }
         }
