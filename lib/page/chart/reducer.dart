@@ -22,7 +22,10 @@ ChartState _onAction(ChartState state, Action action) {
 
 ChartState _onChangePieIndex(ChartState state, Action action) {
   final ChartState newState = state.clone();
-  newState.touchPieIndex = action.payload;
+  if (newState.touchPieIndex == action.payload)
+    newState.touchPieIndex = -1;
+  else
+    newState.touchPieIndex = action.payload;
   return newState;
 }
 

@@ -1,7 +1,14 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum ChartAction { action, changePieIndex, changeChartType, changeDateType, changeChartShowStatus }
+enum ChartAction {
+  action,
+  changePieIndex,
+  changeChartType,
+  changeDateType,
+  changeChartShowStatus,
+  showPieChart,
+}
 
 class ChartActionCreator {
   static Action onAction() {
@@ -14,6 +21,10 @@ class ChartActionCreator {
 
   static Action onChangeChartType() {
     return Action(ChartAction.changeChartType);
+  }
+
+  static Action onShowPieChart() {
+    return Action(ChartAction.showPieChart);
   }
 
   static Action onChangeDateType(bool value) {

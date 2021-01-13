@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
 import 'package:flutter_boki/page/home/hover_offset_info.dart';
@@ -7,7 +9,7 @@ import 'state.dart';
 
 Effect<ChartState> buildEffect() {
   return combineEffects(<Object, Effect<ChartState>>{
-    ChartAction.action: _onAction,
+    ChartAction.showPieChart: _onShowPieChart,
     Lifecycle.initState: _init,
     Lifecycle.dispose: _dispose,
   });
@@ -20,6 +22,7 @@ void _init(Action action, Context<ChartState> ctx) {
     ctx.state.hoverOffsetInfoIndex = 0;
     ctx.state.lastOffset = 0;
     ctx.dispatch(ChartActionCreator.onChangeChartShowStatus(false));
+    _onShowPieChart(action, ctx);
   });
 
   ///列表
@@ -135,10 +138,18 @@ void _init(Action action, Context<ChartState> ctx) {
       }
     },
   );
+  _onShowPieChart(action, ctx);
 }
 
 void _dispose(Action action, Context<ChartState> ctx) {
   ctx.state.scrollController.dispose();
 }
 
-void _onAction(Action action, Context<ChartState> ctx) {}
+void _onShowPieChart(Action action, Context<ChartState> ctx) {
+  ctx.state.isShowPieChart = false;
+  ctx.dispatch(ChartActionCreator.onAction());
+  Timer(const Duration(milliseconds: 600), () {
+    ctx.state.isShowPieChart = true;
+    ctx.dispatch(ChartActionCreator.onAction());
+  });
+}

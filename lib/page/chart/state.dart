@@ -13,6 +13,7 @@ class ChartState implements GlobalBaseState, Cloneable<ChartState> {
   var isPieChart = true;
   var isMonthBtnSelect = true;
   var hasHideChart = false;
+  var isShowPieChart = false;
 
   HoverHeaderVM hoverVM = HoverHeaderVM();
   ScrollController scrollController = ScrollController();
@@ -51,6 +52,7 @@ class ChartState implements GlobalBaseState, Cloneable<ChartState> {
       ..tabs = tabs
       ..tabController = tabController
       ..hasHideChart = hasHideChart
+      ..isShowPieChart = isShowPieChart
       ..data = data;
   }
 
