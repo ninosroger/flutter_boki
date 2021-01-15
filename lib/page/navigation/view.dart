@@ -3,8 +3,6 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boki/global_store/action.dart';
-import 'package:flutter_boki/global_store/store.dart';
 import 'package:flutter_boki/resources/dimens.dart';
 import 'package:flutter_boki/resources/styles.dart';
 import 'package:flutter_boki/route/router_utils.dart';

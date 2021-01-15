@@ -1,6 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_boki/page/home/hover_header_vm.dart';
@@ -104,6 +103,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                     style: TextStyle(
                       fontSize: Dimens.font16,
                       color: state.themeColors.red,
+
                     ),
                   ),
                 ],
