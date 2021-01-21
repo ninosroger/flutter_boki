@@ -261,26 +261,25 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
     },
     child: AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.light,
-      child: DrawerScaffold(
-        controller: state.drawerController,
-        drawers: [
-          SideDrawer(
-            direction: Direction.right,
-            degree: 45,
-            percentage: 0.8,
-            animation: true,
-            color: state.themeColors.white,
-            menu: Menu(items: []),
-            headerView: Container(
-              width: MediaQuery.of(viewService.context).size.width,
-              height: MediaQuery.of(viewService.context).size.height -
-                  window.padding.top,
-              color: state.themeColors.white,
+      child: LayoutBuilder(
+        builder: (context, constraints) => DrawerScaffold(
+          controller: state.drawerController,
+          drawers: [
+            SideDrawer(
+              direction: Direction.right,
+              degree: 45,
+              percentage: 0.8,
+              animation: true,
+              color: state.themeColors.yellow,
+              menu: Menu(items: []),
+              headerView: Container(
+                width: constraints.maxWidth,
+                height: constraints.maxHeight,
+                child: viewService.buildComponent("drawer"),
+              ),
             ),
-          ),
-        ],
-        builder: (context, id) => LayoutBuilder(
-          builder: (context, constraints) => Container(
+          ],
+          builder: (context, id) => Container(
             color: state.themeColors.white,
             child: Stack(
               children: [
@@ -290,8 +289,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                     Container(
                       width: double.infinity,
                       padding: EdgeInsets.fromLTRB(20, 14, 20, 114),
-                      decoration: BoxDecoration(
-                          gradient: Styles.linearGradientYellowToRedForLight),
+                      decoration: BoxDecoration(gradient: Styles.linearGradientYellowToRedForLight),
                       child: SafeArea(
                         child: Container(
                           height: 50,
@@ -313,8 +311,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                       ),
                                     ),
                                     Row(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.end,
+                                      crossAxisAlignment: CrossAxisAlignment.end,
                                       children: [
                                         Text(
                                           '32',
@@ -327,8 +324,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                           ),
                                         ),
                                         Container(
-                                          padding:
-                                              EdgeInsets.fromLTRB(4, 0, 4, 5),
+                                          padding: EdgeInsets.fromLTRB(4, 0, 4, 5),
                                           child: Text(
                                             '天',
                                             style: TextStyle(
@@ -344,8 +340,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                               ),
                               InkWell(
                                 onTap: () {
-                                  state.drawerController
-                                      .toggle(Direction.right);
+                                  state.drawerController.toggle(Direction.right);
                                 },
                                 child: ImageIcon(
                                   AssetImage('assets/images/icon_copy.png'),
@@ -371,24 +366,21 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
 
                     Container(
                       width: double.infinity,
-                      height: constraints.maxHeight -
-                          178 -
-                          MediaQuery.of(viewService.context).padding.top,
+                      height: constraints.maxHeight - 178 - MediaQuery.of(viewService.context).padding.top,
                       child: Stack(
                         children: <Widget>[
                           AnimationLimiter(
                             child: CustomScrollView(
                               controller: state.scrollController,
                               //统一滑动效果，同iOS越界回弹
-                              physics: const PageScrollPhysics(parent: const BouncingScrollPhysics()),
+                              physics: const BouncingScrollPhysics(),
                               slivers: List.generate(
                                 state.titles.length,
                                 (titleIndex) {
                                   String title = state.titles[titleIndex];
                                   List<String> dataList = state.data[title];
                                   return SliverList(
-                                    delegate: SliverChildBuilderDelegate(
-                                        (ctx, cellIndex) {
+                                    delegate: SliverChildBuilderDelegate((ctx, cellIndex) {
                                       if (cellIndex == 0) {
                                         if (title.isEmpty)
                                           return Container(
@@ -402,11 +394,9 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                         else {
                                           int fixIndex = cellIndex - 1;
                                           String data = dataList[fixIndex];
-                                          return AnimationConfiguration
-                                              .staggeredList(
+                                          return AnimationConfiguration.staggeredList(
                                             position: cellIndex,
-                                            duration: const Duration(
-                                                milliseconds: 500),
+                                            duration: const Duration(milliseconds: 500),
                                             child: incomeExpenditureCell,
                                           );
                                         }
@@ -429,11 +419,9 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                         top: -hoverVM.offset,
                                         child: Container(
                                           height: 40,
-                                          width:
-                                              MediaQuery.of(context).size.width,
+                                          width: MediaQuery.of(context).size.width,
                                           color: state.themeColors.white,
-                                          padding:
-                                              EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                          padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                                           child: Row(
                                             children: [
                                               Text(

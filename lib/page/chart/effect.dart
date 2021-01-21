@@ -68,9 +68,80 @@ void _init(Action action, Context<ChartState> ctx) {
     }
   }
 
-  ctx.state.scrollController.addListener(
+  ctx.state.incomeScrollController.addListener(
+        () {
+      double offset = ctx.state.incomeScrollController.offset;
+      bool show = offset >= 0;
+      if (ctx.state.hoverOffsetInfoIndex == 0) {
+        ctx.state.hoverVM.show = false;
+      } else if (ctx.state.hoverVM.show != show) {
+        ctx.state.hoverVM.show = show;
+      }
+      bool upward = offset - ctx.state.lastOffset > 0;
+      ctx.state.lastOffset = offset;
+
+      HoverOffsetInfo offsetInfo;
+
+      if (ctx.state.hoverOffsetInfoList.length >
+          ctx.state.hoverOffsetInfoIndex) {
+        offsetInfo =
+        ctx.state.hoverOffsetInfoList[ctx.state.hoverOffsetInfoIndex];
+        if (upward) {
+          ///向上滚动
+          if (offset < offsetInfo.startOffset) {
+            /// [sectionStartOffset,startOffset)
+            if (ctx.state.hoverVM.offset != 0) {
+              ctx.state.hoverVM.update(offsetInfo.prevIndex, 0);
+            }
+          } else if (offset > offsetInfo.endOffset) {
+            ///(endOffset
+            ///超过endOffset，切换到下一个offsetInfo
+            ctx.state.hoverOffsetInfoIndex++;
+            if (ctx.state.hoverOffsetInfoIndex >=
+                ctx.state.hoverOffsetInfoList.length) {
+              ctx.state.hoverOffsetInfoIndex =
+                  ctx.state.hoverOffsetInfoList.length - 1;
+            }
+            if (ctx.state.hoverOffsetInfoIndex == 1)
+              ctx.dispatch(ChartActionCreator.onChangeChartShowStatus(true));
+            ctx.state.hoverVM.update(offsetInfo.index, 0);
+          } else {
+            /// [startOffset,endOffset]
+            ctx.state.hoverVM
+                .update(offsetInfo.prevIndex, offset - offsetInfo.startOffset);
+          }
+        } else {
+          ///向下滚动
+          if (offset >= offsetInfo.startOffset &&
+              offset <= offsetInfo.endOffset) {
+            ///[startOffset,endOffset]
+            ctx.state.hoverVM
+                .update(offsetInfo.prevIndex, offset - offsetInfo.startOffset);
+          } else if (offset >= offsetInfo.sectionStartOffset) {
+            ///[sectionStartOffset,startOffset）
+            if (ctx.state.hoverVM.offset != 0) {
+              ctx.state.hoverVM.update(offsetInfo.prevIndex, 0);
+            }
+          } else {
+            /// sectionStartOffset)
+            /// 切换到上一个offsetInfo
+            ///其实就是offset小于上一个offsetInfo的endOffset的情况
+            ctx.state.hoverOffsetInfoIndex--;
+            if (ctx.state.hoverOffsetInfoIndex < 0) {
+              ctx.state.hoverOffsetInfoIndex = 0;
+            }
+            if (ctx.state.hoverOffsetInfoIndex == 0)
+              ctx.dispatch(ChartActionCreator.onChangeChartShowStatus(false));
+            ctx.state.hoverVM.update(offsetInfo.prevIndex, 0);
+          }
+        }
+      }
+    },
+  );
+
+  ctx.state.expensesScrollController.addListener(
     () {
-      double offset = ctx.state.scrollController.offset;
+      double offset = ctx.state.expensesScrollController.offset;
       bool show = offset >= 0;
       if (ctx.state.hoverOffsetInfoIndex == 0) {
         ctx.state.hoverVM.show = false;
@@ -142,7 +213,8 @@ void _init(Action action, Context<ChartState> ctx) {
 }
 
 void _dispose(Action action, Context<ChartState> ctx) {
-  ctx.state.scrollController.dispose();
+  ctx.state.incomeScrollController.dispose();
+  ctx.state.expensesScrollController.dispose();
 }
 
 void _onShowPieChart(Action action, Context<ChartState> ctx) {

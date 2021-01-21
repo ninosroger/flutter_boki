@@ -103,7 +103,6 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                     style: TextStyle(
                       fontSize: Dimens.font16,
                       color: state.themeColors.red,
-
                     ),
                   ),
                 ],
@@ -138,8 +137,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                       Container(
                         width: double.infinity,
                         padding: EdgeInsets.fromLTRB(20, 14, 20, 90),
-                        decoration: BoxDecoration(
-                            gradient: Styles.linearGradientYellowToRedForLight),
+                        decoration: BoxDecoration(gradient: Styles.linearGradientYellowToRedForLight),
                         child: SafeArea(
                           child: Container(
                             height: 50,
@@ -152,36 +150,27 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                   controller: state.tabController,
                                   indicatorColor: state.themeColors.white,
                                   indicatorSize: TabBarIndicatorSize.label,
-                                  unselectedLabelColor:
-                                      state.themeColors.lightGray,
+                                  unselectedLabelColor: state.themeColors.lightGray,
                                   labelColor: state.themeColors.white,
-                                  labelPadding:
-                                      EdgeInsets.fromLTRB(14, 6, 14, 6),
-                                  labelStyle: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: Dimens.font16),
-                                  unselectedLabelStyle: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: Dimens.font11),
+                                  labelPadding: EdgeInsets.fromLTRB(14, 6, 14, 6),
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font16),
+                                  unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font11),
                                 ),
                                 Expanded(
                                   child: Gaps.hSpace10,
                                 ),
                                 InkWell(
                                   onTap: () {
-                                    dispatch(
-                                        ChartActionCreator.onChangeChartType());
+                                    dispatch(ChartActionCreator.onChangeChartType());
                                   },
                                   child: state.isPieChart
                                       ? ImageIcon(
-                                          AssetImage(
-                                              'assets/images/pie_chart.png'),
+                                          AssetImage('assets/images/pie_chart.png'),
                                           color: state.themeColors.white,
                                           size: 28.0,
                                         )
                                       : ImageIcon(
-                                          AssetImage(
-                                              'assets/images/line_chart.png'),
+                                          AssetImage('assets/images/line_chart.png'),
                                           color: state.themeColors.white,
                                           size: 28.0,
                                         ),
@@ -194,34 +183,25 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                       //收支列表
                       Container(
                         width: double.infinity,
-                        height: constraints.maxHeight -
-                            154 -
-                            MediaQuery.of(viewService.context).padding.top,
+                        height: constraints.maxHeight - 154 - MediaQuery.of(viewService.context).padding.top,
                         child: TabBarView(
                             //统一滑动效果，同iOS越界回弹
-                            physics: const PageScrollPhysics(
-                                parent: const BouncingScrollPhysics()),
-                            children: state.tabs.map((e) {
-                              return Stack(
+                            physics: const PageScrollPhysics(parent: const BouncingScrollPhysics()),
+                            children: [
+                              Stack(
                                 children: <Widget>[
                                   AnimationLimiter(
                                     child: CustomScrollView(
-                                      controller: state.scrollController,
+                                      controller: state.incomeScrollController,
                                       //统一滑动效果，同iOS越界回弹
-                                      physics: const PageScrollPhysics(
-                                          parent:
-                                              const BouncingScrollPhysics()),
+                                      physics: const BouncingScrollPhysics(),
                                       slivers: List.generate(
                                         state.titles.length,
                                         (titleIndex) {
-                                          String title =
-                                              state.titles[titleIndex];
-                                          List<String> dataList =
-                                              state.data[title];
+                                          String title = state.titles[titleIndex];
+                                          List<String> dataList = state.data[title];
                                           return SliverList(
-                                            delegate:
-                                                SliverChildBuilderDelegate(
-                                                    (ctx, cellIndex) {
+                                            delegate: SliverChildBuilderDelegate((ctx, cellIndex) {
                                               if (cellIndex == 0) {
                                                 if (title.isEmpty)
                                                   return Container(
@@ -234,15 +214,11 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                   return incomeExpenditureView;
                                                 else {
                                                   int fixIndex = cellIndex - 1;
-                                                  String data =
-                                                      dataList[fixIndex];
-                                                  return AnimationConfiguration
-                                                      .staggeredList(
+                                                  String data = dataList[fixIndex];
+                                                  return AnimationConfiguration.staggeredList(
                                                     position: cellIndex,
-                                                    duration: const Duration(
-                                                        milliseconds: 500),
-                                                    child:
-                                                        incomeExpenditureCell,
+                                                    duration: const Duration(milliseconds: 500),
+                                                    child: incomeExpenditureCell,
                                                   );
                                                 }
                                               }
@@ -253,8 +229,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                     ),
                                   ),
                                   Consumer(
-                                    builder:
-                                        (ctx, HoverHeaderVM hoverVM, child) {
+                                    builder: (ctx, HoverHeaderVM hoverVM, child) {
                                       return Visibility(
                                         visible: hoverVM.show,
                                         child: Container(
@@ -265,26 +240,18 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                 top: -hoverVM.offset,
                                                 child: Container(
                                                   height: 40,
-                                                  width: MediaQuery.of(
-                                                          viewService.context)
-                                                      .size
-                                                      .width,
-                                                  color:
-                                                      state.themeColors.white,
-                                                  padding: EdgeInsets.fromLTRB(
-                                                      20, 0, 20, 0),
+                                                  width: MediaQuery.of(viewService.context).size.width,
+                                                  color: state.themeColors.white,
+                                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
                                                   child: Row(
                                                     children: [
                                                       Text(
                                                         '5月13日 星期日',
                                                         maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
+                                                        overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize:
-                                                              Dimens.font11,
-                                                          color: state
-                                                              .themeColors.gray,
+                                                          fontSize: Dimens.font11,
+                                                          color: state.themeColors.gray,
                                                         ),
                                                       ),
                                                       Expanded(
@@ -293,26 +260,20 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                       Text(
                                                         '收入：1500',
                                                         maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
+                                                        overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize:
-                                                              Dimens.font11,
-                                                          color: state
-                                                              .themeColors.gray,
+                                                          fontSize: Dimens.font11,
+                                                          color: state.themeColors.gray,
                                                         ),
                                                       ),
                                                       Gaps.hSpace10,
                                                       Text(
                                                         '支出：650',
                                                         maxLines: 1,
-                                                        overflow: TextOverflow
-                                                            .ellipsis,
+                                                        overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize:
-                                                              Dimens.font11,
-                                                          color: state
-                                                              .themeColors.gray,
+                                                          fontSize: Dimens.font11,
+                                                          color: state.themeColors.gray,
                                                         ),
                                                       ),
                                                     ],
@@ -326,8 +287,108 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                     },
                                   )
                                 ],
-                              );
-                            }).toList(),
+                              ),
+                              Stack(
+                                children: <Widget>[
+                                  AnimationLimiter(
+                                    child: CustomScrollView(
+                                      controller: state.expensesScrollController,
+                                      //统一滑动效果，同iOS越界回弹
+                                      physics: const BouncingScrollPhysics(),
+                                      slivers: List.generate(
+                                        state.titles.length,
+                                        (titleIndex) {
+                                          String title = state.titles[titleIndex];
+                                          List<String> dataList = state.data[title];
+                                          return SliverList(
+                                            delegate: SliverChildBuilderDelegate((ctx, cellIndex) {
+                                              if (cellIndex == 0) {
+                                                if (title.isEmpty)
+                                                  return Container(
+                                                    height: 0,
+                                                  );
+                                                else
+                                                  return incomeExpenditureHeader;
+                                              } else {
+                                                if (title.isEmpty)
+                                                  return incomeExpenditureView;
+                                                else {
+                                                  int fixIndex = cellIndex - 1;
+                                                  String data = dataList[fixIndex];
+                                                  return AnimationConfiguration.staggeredList(
+                                                    position: cellIndex,
+                                                    duration: const Duration(milliseconds: 500),
+                                                    child: incomeExpenditureCell,
+                                                  );
+                                                }
+                                              }
+                                            }, childCount: dataList.length + 1),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  ),
+                                  Consumer(
+                                    builder: (ctx, HoverHeaderVM hoverVM, child) {
+                                      return Visibility(
+                                        visible: hoverVM.show,
+                                        child: Container(
+                                          height: 40,
+                                          child: Stack(
+                                            children: <Widget>[
+                                              Positioned(
+                                                top: -hoverVM.offset,
+                                                child: Container(
+                                                  height: 40,
+                                                  width: MediaQuery.of(viewService.context).size.width,
+                                                  color: state.themeColors.white,
+                                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                                  child: Row(
+                                                    children: [
+                                                      Text(
+                                                        '5月13日 星期日',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: Dimens.font11,
+                                                          color: state.themeColors.gray,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace10,
+                                                      ),
+                                                      Text(
+                                                        '收入：1500',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: Dimens.font11,
+                                                          color: state.themeColors.gray,
+                                                        ),
+                                                      ),
+                                                      Gaps.hSpace10,
+                                                      Text(
+                                                        '支出：650',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: Dimens.font11,
+                                                          color: state.themeColors.gray,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    },
+                                  )
+                                ],
+                              ),
+                            ],
                             controller: state.tabController),
                       ),
                     ],
@@ -384,9 +445,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                               children: [
                                 GestureDetector(
                                   onTap: () {
-                                    dispatch(
-                                        ChartActionCreator.onChangeDateType(
-                                            true));
+                                    dispatch(ChartActionCreator.onChangeDateType(true));
                                   },
                                   child: AnimatedContainer(
                                     duration: Duration(milliseconds: 600),
@@ -394,16 +453,11 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                     height: 32,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-                                      gradient: state.isMonthBtnSelect
-                                          ? Styles
-                                              .linearGradientYellowToRedForLight
-                                          : Styles.linearGradientGrayForLight,
+                                      gradient: state.isMonthBtnSelect ? Styles.linearGradientYellowToRedForLight : Styles.linearGradientGrayForLight,
                                       borderRadius: BorderRadius.circular(17),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: state.isMonthBtnSelect
-                                              ? state.themeColors.gray
-                                              : state.themeColors.white,
+                                          color: state.isMonthBtnSelect ? state.themeColors.gray : state.themeColors.white,
                                           offset: Offset(0.0, 0.0),
                                           blurRadius: 4.0,
                                           spreadRadius: 1.0,
@@ -413,9 +467,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                     child: Text(
                                       '月',
                                       style: TextStyle(
-                                        color: state.isMonthBtnSelect
-                                            ? state.themeColors.white
-                                            : state.themeColors.black,
+                                        color: state.isMonthBtnSelect ? state.themeColors.white : state.themeColors.black,
                                         fontSize: Dimens.font14,
                                       ),
                                     ),
@@ -424,9 +476,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                 Gaps.hSpace10,
                                 GestureDetector(
                                   onTap: () {
-                                    dispatch(
-                                        ChartActionCreator.onChangeDateType(
-                                            false));
+                                    dispatch(ChartActionCreator.onChangeDateType(false));
                                   },
                                   child: AnimatedContainer(
                                     duration: Duration(milliseconds: 600),
@@ -434,16 +484,11 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                     height: 32,
                                     alignment: Alignment.center,
                                     decoration: BoxDecoration(
-                                      gradient: !state.isMonthBtnSelect
-                                          ? Styles
-                                              .linearGradientYellowToRedForLight
-                                          : Styles.linearGradientGrayForLight,
+                                      gradient: !state.isMonthBtnSelect ? Styles.linearGradientYellowToRedForLight : Styles.linearGradientGrayForLight,
                                       borderRadius: BorderRadius.circular(17),
                                       boxShadow: [
                                         BoxShadow(
-                                          color: !state.isMonthBtnSelect
-                                              ? state.themeColors.gray
-                                              : state.themeColors.white,
+                                          color: !state.isMonthBtnSelect ? state.themeColors.gray : state.themeColors.white,
                                           offset: Offset(0.0, 0.0),
                                           blurRadius: 4.0,
                                           spreadRadius: 1.0,
@@ -453,9 +498,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                     child: Text(
                                       '年',
                                       style: TextStyle(
-                                        color: !state.isMonthBtnSelect
-                                            ? state.themeColors.white
-                                            : state.themeColors.black,
+                                        color: !state.isMonthBtnSelect ? state.themeColors.white : state.themeColors.black,
                                         fontSize: Dimens.font14,
                                       ),
                                     ),
@@ -482,94 +525,64 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                     sectionsSpace: 2.0,
                                     pieTouchData: PieTouchData(
                                       touchCallback: (pieTouchResponse) {
-                                        if (pieTouchResponse.touchInput
-                                            is FlPanStart)
-                                          dispatch(ChartActionCreator
-                                              .onChangePieIndex(pieTouchResponse
-                                                  .touchedSectionIndex));
+                                        if (pieTouchResponse.touchInput is FlPanStart) dispatch(ChartActionCreator.onChangePieIndex(pieTouchResponse.touchedSectionIndex));
                                       },
                                     ),
                                     sections: [
                                       PieChartSectionData(
-                                        value:
-                                            state.isShowPieChart ? 24.0 : 0.0,
+                                        value: state.isShowPieChart ? 24.0 : 0.0,
                                         showTitle: false,
-                                        radius: state.touchPieIndex == 0
-                                            ? pieTouchRadius
-                                            : pieRadius,
+                                        radius: state.touchPieIndex == 0 ? pieTouchRadius : pieRadius,
                                         color: state.themeColors.chartGreen,
                                       ),
                                       PieChartSectionData(
-                                        value:
-                                            state.isShowPieChart ? 36.0 : 0.0,
+                                        value: state.isShowPieChart ? 36.0 : 0.0,
                                         showTitle: false,
-                                        radius: state.touchPieIndex == 1
-                                            ? pieTouchRadius
-                                            : pieRadius,
+                                        radius: state.touchPieIndex == 1 ? pieTouchRadius : pieRadius,
                                         color: state.themeColors.chartPink,
                                       ),
                                       PieChartSectionData(
-                                        value:
-                                            state.isShowPieChart ? 55.0 : 0.0,
+                                        value: state.isShowPieChart ? 55.0 : 0.0,
                                         showTitle: false,
-                                        radius: state.touchPieIndex == 2
-                                            ? pieTouchRadius
-                                            : pieRadius,
+                                        radius: state.touchPieIndex == 2 ? pieTouchRadius : pieRadius,
                                         color: state.themeColors.chartPurple,
                                       ),
                                       PieChartSectionData(
-                                        value:
-                                            state.isShowPieChart ? 70.0 : 0.0,
+                                        value: state.isShowPieChart ? 70.0 : 0.0,
                                         showTitle: false,
-                                        radius: state.touchPieIndex == 3
-                                            ? pieTouchRadius
-                                            : pieRadius,
+                                        radius: state.touchPieIndex == 3 ? pieTouchRadius : pieRadius,
                                         color: state.themeColors.chartBlue,
                                       ),
                                       PieChartSectionData(
-                                        value:
-                                            state.isShowPieChart ? 75.0 : 0.0,
+                                        value: state.isShowPieChart ? 75.0 : 0.0,
                                         showTitle: false,
-                                        radius: state.touchPieIndex == 4
-                                            ? pieTouchRadius
-                                            : pieRadius,
+                                        radius: state.touchPieIndex == 4 ? pieTouchRadius : pieRadius,
                                         color: state.themeColors.chartRed,
                                       ),
                                       PieChartSectionData(
-                                        value:
-                                            state.isShowPieChart ? 100.0 : 0.0,
+                                        value: state.isShowPieChart ? 100.0 : 0.0,
                                         showTitle: false,
-                                        radius: state.touchPieIndex == 5
-                                            ? pieTouchRadius
-                                            : pieRadius,
+                                        radius: state.touchPieIndex == 5 ? pieTouchRadius : pieRadius,
                                         color: state.themeColors.chartYellow,
                                       ),
                                       PieChartSectionData(
-                                        value:
-                                        state.isShowPieChart ? 0.0 : 360.0,
+                                        value: state.isShowPieChart ? 0.0 : 360.0,
                                         showTitle: false,
-                                        radius: state.touchPieIndex == 6
-                                            ? pieTouchRadius
-                                            : pieRadius,
+                                        radius: state.touchPieIndex == 6 ? pieTouchRadius : pieRadius,
                                         color: state.themeColors.white,
                                       ),
                                     ],
                                   ),
-                                  swapAnimationDuration:
-                                      Duration(milliseconds: 400),
+                                  swapAnimationDuration: Duration(milliseconds: 400),
                                 ),
                               ),
                               Container(
                                 height: 200,
                                 padding: EdgeInsets.fromLTRB(16, 10, 10, 10),
-                                width: MediaQuery.of(viewService.context)
-                                        .size
-                                        .width -
-                                    268,
+                                width: MediaQuery.of(viewService.context).size.width - 268,
                                 child: ListView(
                                   //统一滑动效果，同iOS越界回弹
-                                  physics: const PageScrollPhysics(
-                                      parent: const BouncingScrollPhysics()),
+                                  physics: const BouncingScrollPhysics(),
                                   children: [
                                     Container(
                                       height: 30,
@@ -645,8 +658,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                           Icon(
                                             FontAwesome.circle,
                                             size: 12,
-                                            color:
-                                                state.themeColors.chartPurple,
+                                            color: state.themeColors.chartPurple,
                                           ),
                                           Gaps.hSpace10,
                                           Text(
@@ -745,8 +757,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                           Icon(
                                             FontAwesome.circle,
                                             size: 12,
-                                            color:
-                                                state.themeColors.chartYellow,
+                                            color: state.themeColors.chartYellow,
                                           ),
                                           Gaps.hSpace10,
                                           Text(

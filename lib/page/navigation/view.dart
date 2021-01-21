@@ -1,5 +1,3 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:dots_indicator/dots_indicator.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -8,20 +6,20 @@ import 'package:flutter_boki/resources/styles.dart';
 import 'package:flutter_boki/route/router_utils.dart';
 import 'package:flutter_boki/route/routers.dart';
 import 'package:lottie/lottie.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'action.dart';
 import 'state.dart';
 
-Widget buildView(
-    NavigationState state, Dispatch dispatch, ViewService viewService) {
+Widget buildView(NavigationState state, Dispatch dispatch, ViewService viewService) {
   return AnnotatedRegion<SystemUiOverlayStyle>(
     value: SystemUiOverlayStyle.dark,
     child: Scaffold(
       backgroundColor: state.themeColors.background,
       body: Stack(
         children: [
-          CarouselSlider(
-            items: [
+          PageView(
+            children: [
               Container(
                 child: Lottie.asset(
                   'assets/lottie/man_office.json',
@@ -41,18 +39,12 @@ Widget buildView(
                 ),
               ),
             ],
-            options: CarouselOptions(
-              height: double.infinity,
-              viewportFraction: 0.9,
-              enableInfiniteScroll: false,
-              onPageChanged: (index, reason) => dispatch(
-                  NavigationActionCreator.onPageChanged(index.toDouble())),
-            ),
+            physics: const PageScrollPhysics(parent: const BouncingScrollPhysics()),
+            controller: state.controller,
           ),
           Align(
             child: InkWell(
-              onTap: () =>
-                  FluroNavigator.push(viewService.context, Routers.index),
+              onTap: () => FluroNavigator.push(viewService.context, Routers.index, replace: true),
               child: SafeArea(
                 child: Container(
                   width: 60,
@@ -86,15 +78,16 @@ Widget buildView(
           Align(
             child: Container(
               margin: EdgeInsets.all(20),
-              child: DotsIndicator(
-                dotsCount: 3,
-                position: state.currentIndex,
-                decorator: DotsDecorator(
-                  activeColor: state.themeColors.red,
-                  size: const Size.square(8.0),
-                  activeSize: const Size(16.0, 8.0),
-                  activeShape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(5.0)),
+              child: SmoothPageIndicator(
+                controller: state.controller,
+                count: 3,
+                effect: ExpandingDotsEffect(
+                  expansionFactor: 2,
+                  dotColor: state.themeColors.gray,
+                  activeDotColor: state.themeColors.red,
+                  dotWidth: 12,
+                  dotHeight: 12,
+                  radius: 6,
                 ),
               ),
             ),

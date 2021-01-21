@@ -1,10 +1,10 @@
 import 'package:fish_redux/fish_redux.dart';
 
 //TODO replace with your own action
-enum NavigationAction { action }
+enum DrawerAction { action }
 
-class NavigationActionCreator {
+class DrawerActionCreator {
   static Action onAction() {
-    return const Action(NavigationAction.action);
+    return const Action(DrawerAction.action);
   }
 }

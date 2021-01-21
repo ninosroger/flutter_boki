@@ -1,6 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter_boki/page/home/component.dart';
 
+import 'drawer/component.dart';
 import 'effect.dart';
 import 'reducer.dart';
 import 'state.dart';
@@ -13,8 +14,9 @@ class HomePage extends Page<HomeState, Map<String, dynamic>> {
           effect: buildEffect(),
           reducer: buildReducer(),
           view: buildView,
-          dependencies: Dependencies<HomeState>(
-              adapter: null, slots: <String, Dependent<HomeState>>{}),
+          dependencies: Dependencies<HomeState>(adapter: null, slots: <String, Dependent<HomeState>>{
+            'drawer': DrawerConnector() + DrawerComponent(),
+          }),
           middleware: <Middleware<HomeState>>[],
         );
 

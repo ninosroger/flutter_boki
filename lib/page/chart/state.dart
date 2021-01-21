@@ -16,7 +16,8 @@ class ChartState implements GlobalBaseState, Cloneable<ChartState> {
   var isShowPieChart = false;
 
   HoverHeaderVM hoverVM = HoverHeaderVM();
-  ScrollController scrollController = ScrollController();
+  ScrollController incomeScrollController = ScrollController();
+  ScrollController expensesScrollController = ScrollController();
   List<HoverOffsetInfo> hoverOffsetInfoList = [];
   int hoverOffsetInfoIndex = 0;
   List titles = [];
@@ -41,10 +42,11 @@ class ChartState implements GlobalBaseState, Cloneable<ChartState> {
     return ChartState()
       ..themeColors = themeColors
       ..isPieChart = isPieChart
+      ..incomeScrollController = incomeScrollController
+      ..expensesScrollController = expensesScrollController
       ..isMonthBtnSelect = isMonthBtnSelect
       ..touchPieIndex = touchPieIndex
       ..hoverVM = hoverVM
-      ..scrollController = scrollController
       ..hoverOffsetInfoList = hoverOffsetInfoList
       ..hoverOffsetInfoIndex = hoverOffsetInfoIndex
       ..titles = titles

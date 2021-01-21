@@ -62,7 +62,7 @@ Future init() async {
       db.execute(Sqls.createBookkeepingTable);
       db.execute(Sqls.createPiggyBankRecordTable);
       db.execute(Sqls.createAutomaticInsertionTable);
-      db.execute(Sqls.createIncomeExpenditureTypesTable);
+      db.execute(Sqls.createIncomeExpensesTypesTable);
       return db;
     },
   );

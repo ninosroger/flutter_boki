@@ -2,12 +2,15 @@ import 'package:drawerbehavior/drawerbehavior.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boki/global_store/state.dart';
+import 'package:flutter_boki/page/home/drawer/state.dart';
 import 'package:flutter_boki/resources/colors.dart';
 
 import 'hover_header_vm.dart';
 import 'hover_offset_info.dart';
 
 class HomeState implements GlobalBaseState, Cloneable<HomeState> {
+  DrawerState drawerState = DrawerState();
+
   //侧边栏controller
   DrawerScaffoldController drawerController = DrawerScaffoldController();
 
@@ -56,6 +59,7 @@ class HomeState implements GlobalBaseState, Cloneable<HomeState> {
   HomeState clone() {
     return HomeState()
       ..topStatus = topStatus
+      ..drawerState = drawerState
       ..cardMoveStatus = cardMoveStatus
       ..smallMoveStatus = smallMoveStatus
       ..themeColors = themeColors
@@ -84,4 +88,12 @@ class HomeState implements GlobalBaseState, Cloneable<HomeState> {
 HomeState initState(Map<String, dynamic> args) {
   var state = HomeState();
   return state;
+}
+
+class DrawerConnector extends ConnOp<HomeState, DrawerState> with ReselectMixin<HomeState, DrawerState> {
+  @override
+  DrawerState computed(HomeState state) => state.drawerState..themeColors = state.themeColors;
+
+  @override
+  void set(HomeState state, DrawerState subState) => state.drawerState = subState;
 }

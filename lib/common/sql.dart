@@ -37,7 +37,7 @@ class Sqls {
                                                       ")";
 
   ///创建收支类型表
-  static String  createIncomeExpenditureTypesTable = "CREATE TABLE income_expenditure_types("
+  static String  createIncomeExpensesTypesTable = "CREATE TABLE income_expenses_types("
                                                       "id INTEGER PRIMARY KEY autoincrement," //类型id
                                                       "name TEXT," //名称
                                                       "remark TEXT," //备注
@@ -58,8 +58,8 @@ class Sqls {
                                                       "create_type INTEGER," //创建类型
                                                       "price INTEGER," //金额
                                                       "price_formula TEXT," //金额公式
-                                                      "income_expenditure_id INTEGER," //收支类型id
-                                                      "income_expenditure_types INTEGER," //收支类型
+                                                      "income_expenses_id INTEGER," //收支类型id
+                                                      "income_expenses_types INTEGER," //收支类型
                                                       "remark TEXT," //备注
                                                       "image TEXT," //图片
                                                       "is_special INTEGER," //是否特殊
@@ -72,7 +72,7 @@ class Sqls {
                                                       "create_date INTEGER," //创建时间
                                                       "price INTEGER," //金额
                                                       "income_price INTEGER," //收入
-                                                      "expenditure_price INTEGER," //支出
+                                                      "expenses_price INTEGER," //支出
                                                       "bookkeep_count INTEGER," //收支类型id
                                                       "user_id INTEGER," //参与角色id
                                                       "remark TEXT," //备注
