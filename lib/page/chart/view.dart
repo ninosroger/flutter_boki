@@ -68,52 +68,59 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
   var incomeExpenditureCell = SlideAnimation(
     verticalOffset: 200.0,
     child: FadeInAnimation(
-      child: Container(
-        height: 64,
+      child: Material(
         color: state.themeColors.white,
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Column(
-          children: [
-            Container(
-              height: 59.4,
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/images/icon_income_expenditure5.png",
-                    width: 30,
-                    height: 30,
+        child: InkWell(
+          splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+          highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+          onTap: () {},
+          child: Container(
+            height: 64,
+            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Column(
+              children: [
+                Container(
+                  height: 63.4,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "assets/images/icon_income_expenditure5.png",
+                        width: 30,
+                        height: 30,
+                      ),
+                      Gaps.hSpace10,
+                      Text(
+                        '早餐-支付宝',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: Dimens.font14,
+                          color: state.themeColors.black,
+                        ),
+                      ),
+                      Expanded(
+                        child: Gaps.hSpace20,
+                      ),
+                      Text(
+                        '-22.51',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: Dimens.font16,
+                          color: state.themeColors.red,
+                        ),
+                      ),
+                    ],
                   ),
-                  Gaps.hSpace10,
-                  Text(
-                    '早餐-支付宝',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: Dimens.font14,
-                      color: state.themeColors.black,
-                    ),
-                  ),
-                  Expanded(
-                    child: Gaps.hSpace20,
-                  ),
-                  Text(
-                    '-22.51',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: Dimens.font16,
-                      color: state.themeColors.red,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                Divider(
+                  color: state.themeColors.lightGray,
+                  height: 0.6,
+                  indent: 40,
+                )
+              ],
             ),
-            Divider(
-              color: state.themeColors.lightGray,
-              height: 0.6,
-              indent: 40,
-            )
-          ],
+          ),
         ),
       ),
     ),

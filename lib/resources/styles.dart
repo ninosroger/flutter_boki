@@ -11,6 +11,11 @@ class Styles {
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
   );
+  static const linearGradientRedToYellowForLight = LinearGradient(
+    colors: [Color(0xFFFB6463), Color(0xFFFBB663)],
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+  );
   static const linearGradientTopYellowToBottomRedForLight = LinearGradient(
     colors: [Color(0xFFFBB663), Color(0xFFFB6463)],
     begin: Alignment.topCenter,

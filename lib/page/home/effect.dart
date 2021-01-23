@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart' hide Action;
+import 'package:flutter_boki/common/global_field.dart';
 import 'action.dart';
 import 'hover_offset_info.dart';
 import 'state.dart';
@@ -8,17 +9,18 @@ Effect<HomeState> buildEffect() {
   return combineEffects(<Object, Effect<HomeState>>{
     HomeAction.action: _onAction,
     Lifecycle.initState: _init,
-    Lifecycle.dispose: _dispose,
   });
 }
 
 void _init(Action action, Context<HomeState> ctx) {
+  GlobalField.bus.on("dispose_from_ticker", (arg) {
+    _dispose(action, ctx);
+  });
+
   ///动效
   final TickerProvider tickerProvider = ctx.stfState as TickerProvider;
-
   //淡入淡出
-  ctx.state.topController = AnimationController(
-      duration: Duration(milliseconds: 800), vsync: tickerProvider)
+  ctx.state.topController = AnimationController(duration: Duration(milliseconds: 800), vsync: tickerProvider)
     ..addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         ctx.state.topStatus = true;
@@ -26,12 +28,10 @@ void _init(Action action, Context<HomeState> ctx) {
         ctx.state.topStatus = false;
       }
     });
-  ctx.state.topAnimation =
-      Tween<double>(begin: 0, end: 1).animate(ctx.state.topController);
+  ctx.state.topAnimation = Tween<double>(begin: 0, end: 1).animate(ctx.state.topController);
 
   //位移
-  ctx.state.cardMoveController = AnimationController(
-      duration: Duration(milliseconds: 600), vsync: tickerProvider)
+  ctx.state.cardMoveController = AnimationController(duration: Duration(milliseconds: 600), vsync: tickerProvider)
     ..addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         ctx.state.cardMoveStatus = true;
@@ -41,8 +41,7 @@ void _init(Action action, Context<HomeState> ctx) {
         ctx.state.cardMoveStatus = false;
       }
     });
-  ctx.state.cardMoveAnimation =
-      Tween<Offset>(begin: Offset.zero, end: Offset(-1.2, 0)).animate(
+  ctx.state.cardMoveAnimation = Tween<Offset>(begin: Offset.zero, end: Offset(-1.2, 0)).animate(
     CurvedAnimation(
       parent: ctx.state.cardMoveController,
       curve: Curves.easeInOutBack,
@@ -50,8 +49,7 @@ void _init(Action action, Context<HomeState> ctx) {
   );
 
   //位移
-  ctx.state.smallMoveController = AnimationController(
-      duration: Duration(milliseconds: 400), vsync: tickerProvider)
+  ctx.state.smallMoveController = AnimationController(duration: Duration(milliseconds: 400), vsync: tickerProvider)
     ..addStatusListener((status) {
       if (status == AnimationStatus.completed) {
         ctx.state.smallMoveStatus = true;
@@ -62,18 +60,15 @@ void _init(Action action, Context<HomeState> ctx) {
         ctx.state.topController.reverse();
       }
     });
-  ctx.state.smallMoveAnimation =
-      Tween<Offset>(begin: Offset.zero, end: Offset(1.5, 0)).animate(
+  ctx.state.smallMoveAnimation = Tween<Offset>(begin: Offset.zero, end: Offset(1.5, 0)).animate(
     CurvedAnimation(
       parent: ctx.state.smallMoveController,
       curve: Curves.easeInOutBack,
     ),
   );
 
-  ctx.state.cellMoveController = AnimationController(
-      duration: Duration(milliseconds: 400), vsync: tickerProvider);
-  ctx.state.cellMoveAnimation =
-      Tween<Offset>(begin: Offset(1.5, 0), end: Offset.zero).animate(
+  ctx.state.cellMoveController = AnimationController(duration: Duration(milliseconds: 400), vsync: tickerProvider);
+  ctx.state.cellMoveAnimation = Tween<Offset>(begin: Offset(1.5, 0), end: Offset.zero).animate(
     CurvedAnimation(
       parent: ctx.state.cellMoveController,
       curve: Curves.easeIn,
@@ -138,10 +133,8 @@ void _init(Action action, Context<HomeState> ctx) {
 
       HoverOffsetInfo offsetInfo;
 
-      if (ctx.state.hoverOffsetInfoList.length >
-          ctx.state.hoverOffsetInfoIndex) {
-        offsetInfo =
-            ctx.state.hoverOffsetInfoList[ctx.state.hoverOffsetInfoIndex];
+      if (ctx.state.hoverOffsetInfoList.length > ctx.state.hoverOffsetInfoIndex) {
+        offsetInfo = ctx.state.hoverOffsetInfoList[ctx.state.hoverOffsetInfoIndex];
         if (upward) {
           ///向上滚动
           if (offset < offsetInfo.startOffset) {
@@ -153,26 +146,20 @@ void _init(Action action, Context<HomeState> ctx) {
             ///(endOffset
             ///超过endOffset，切换到下一个offsetInfo
             ctx.state.hoverOffsetInfoIndex++;
-            if (ctx.state.hoverOffsetInfoIndex >=
-                ctx.state.hoverOffsetInfoList.length) {
-              ctx.state.hoverOffsetInfoIndex =
-                  ctx.state.hoverOffsetInfoList.length - 1;
+            if (ctx.state.hoverOffsetInfoIndex >= ctx.state.hoverOffsetInfoList.length) {
+              ctx.state.hoverOffsetInfoIndex = ctx.state.hoverOffsetInfoList.length - 1;
             }
-            if (ctx.state.hoverOffsetInfoIndex == 1)
-              ctx.state.cardMoveController.forward();
+            if (ctx.state.hoverOffsetInfoIndex == 1) ctx.state.cardMoveController.forward();
             ctx.state.hoverVM.update(offsetInfo.index, 0);
           } else {
             /// [startOffset,endOffset]
-            ctx.state.hoverVM
-                .update(offsetInfo.prevIndex, offset - offsetInfo.startOffset);
+            ctx.state.hoverVM.update(offsetInfo.prevIndex, offset - offsetInfo.startOffset);
           }
         } else {
           ///向下滚动
-          if (offset >= offsetInfo.startOffset &&
-              offset <= offsetInfo.endOffset) {
+          if (offset >= offsetInfo.startOffset && offset <= offsetInfo.endOffset) {
             ///[startOffset,endOffset]
-            ctx.state.hoverVM
-                .update(offsetInfo.prevIndex, offset - offsetInfo.startOffset);
+            ctx.state.hoverVM.update(offsetInfo.prevIndex, offset - offsetInfo.startOffset);
           } else if (offset >= offsetInfo.sectionStartOffset) {
             ///[sectionStartOffset,startOffset）
             if (ctx.state.hoverVM.offset != 0) {
@@ -186,8 +173,7 @@ void _init(Action action, Context<HomeState> ctx) {
             if (ctx.state.hoverOffsetInfoIndex < 0) {
               ctx.state.hoverOffsetInfoIndex = 0;
             }
-            if (ctx.state.hoverOffsetInfoIndex == 0)
-              ctx.state.smallMoveController.reverse();
+            if (ctx.state.hoverOffsetInfoIndex == 0) ctx.state.smallMoveController.reverse();
             ctx.state.hoverVM.update(offsetInfo.prevIndex, 0);
           }
         }
@@ -201,6 +187,8 @@ void _dispose(Action action, Context<HomeState> ctx) {
   ctx.state.scrollController.dispose();
   ctx.state.smallMoveController.dispose();
   ctx.state.cardMoveController.dispose();
+  ctx.state.cellMoveController.dispose();
+  GlobalField.bus.off("dispose_from_ticker");
 }
 
 void _onAction(Action action, Context<HomeState> ctx) {}

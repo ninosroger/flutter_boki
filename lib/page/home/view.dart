@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_boki/resources/dimens.dart';
 import 'package:flutter_boki/resources/gaps.dart';
 import 'package:flutter_boki/resources/styles.dart';
+import 'package:flutter_boki/widget/dotted_decoration.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -205,52 +206,59 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
   var incomeExpenditureCell = SlideAnimation(
     horizontalOffset: 200.0,
     child: FadeInAnimation(
-      child: Container(
-        height: 64,
+      child: Material(
         color: state.themeColors.white,
-        padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-        child: Column(
-          children: [
-            Container(
-              height: 59.4,
-              child: Row(
-                children: [
-                  Image.asset(
-                    "assets/images/icon_income_expenditure5.png",
-                    width: 30,
-                    height: 30,
+        child: InkWell(
+          splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+          highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+          onTap: () {},
+          child: Container(
+            height: 64,
+            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+            child: Column(
+              children: [
+                Container(
+                  height: 63.4,
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        "assets/images/icon_income_expenditure5.png",
+                        width: 30,
+                        height: 30,
+                      ),
+                      Gaps.hSpace10,
+                      Text(
+                        '早餐-支付宝',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: Dimens.font14,
+                          color: state.themeColors.black,
+                        ),
+                      ),
+                      Expanded(
+                        child: Gaps.hSpace20,
+                      ),
+                      Text(
+                        '-22.51',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: Dimens.font16,
+                          color: state.themeColors.red,
+                        ),
+                      ),
+                    ],
                   ),
-                  Gaps.hSpace10,
-                  Text(
-                    '早餐-支付宝',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: Dimens.font14,
-                      color: state.themeColors.black,
-                    ),
-                  ),
-                  Expanded(
-                    child: Gaps.hSpace20,
-                  ),
-                  Text(
-                    '-22.51',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: Dimens.font16,
-                      color: state.themeColors.red,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                Divider(
+                  color: state.themeColors.lightGray,
+                  height: 0.6,
+                  indent: 40,
+                )
+              ],
             ),
-            Divider(
-              color: state.themeColors.lightGray,
-              height: 0.6,
-              indent: 40,
-            )
-          ],
+          ),
         ),
       ),
     ),
@@ -275,7 +283,165 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
               headerView: Container(
                 width: constraints.maxWidth,
                 height: constraints.maxHeight,
-                child: viewService.buildComponent("drawer"),
+                child: Stack(
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(gradient: Styles.linearGradientTopYellowToBottomRedForLight),
+                      height: 250,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 250),
+                      height: constraints.maxHeight - 250,
+                      width: constraints.maxWidth,
+                      padding: EdgeInsets.fromLTRB(constraints.maxWidth * 0.2, 0, 0, 0),
+                      decoration: BoxDecoration(color: state.themeColors.white),
+                      child: Stack(
+                        alignment: AlignmentDirectional.topCenter,
+                        children: [
+                          Container(
+                            width: 200,
+                            height: 280,
+                            margin: EdgeInsets.all(50),
+                            decoration: BoxDecoration(
+                              color: state.themeColors.white,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(6.0),
+                                topRight: Radius.circular(14.0),
+                                bottomLeft: Radius.circular(6.0),
+                                bottomRight: Radius.circular(14.0),
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: state.themeColors.lightGray,
+                                  offset: Offset(1, 1),
+                                  blurRadius: 8.0,
+                                  spreadRadius: 2.0,
+                                ),
+                              ],
+                            ),
+                            child: Stack(
+                              children: [
+                                //渐变封面
+                                Container(
+                                  width: 200,
+                                  height: 200,
+                                  alignment: Alignment.bottomLeft,
+                                  padding: EdgeInsets.fromLTRB(14, 0, 14, 8),
+                                  decoration: BoxDecoration(
+                                    gradient: Styles.linearGradientRedToYellowForLight,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(6.0),
+                                      topRight: Radius.circular(14.0),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    "生活账本",
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      color: state.themeColors.white,
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: Dimens.font16,
+                                    ),
+                                  ),
+                                ),
+                                //虚线
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                                  width: 192,
+                                  height: 264,
+                                  decoration: DottedDecoration(
+                                    color: state.themeColors.lightGray,
+                                    shape: Shape.line,
+                                    linePositions: [LinePosition.top, LinePosition.right, LinePosition.bottom],
+                                    dash: [4, 4],
+                                    borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(14.0),
+                                      bottomRight: Radius.circular(14.0),
+                                    ),
+                                  ),
+                                ),
+                                //记录天数
+                                Container(
+                                  height: 50,
+                                  margin: EdgeInsets.fromLTRB(14, 14, 14, 10),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        '一共记录了',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: 8,
+                                          color: state.themeColors.white,
+                                        ),
+                                      ),
+                                      Row(
+                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                        children: [
+                                          Text(
+                                            '32',
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: Dimens.font12,
+                                              color: state.themeColors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          Container(
+                                            padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                                            child: Text(
+                                              '天',
+                                              style: TextStyle(
+                                                fontSize: 8,
+                                                color: state.themeColors.white,
+                                              ),
+                                            ),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                //账本信息
+                                Container(
+                                  margin: EdgeInsets.fromLTRB(14, 208, 14, 10),
+                                  child: Column(
+                                    children: [
+                                      Text(
+                                        '共记录了 140 笔',
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                        style: TextStyle(
+                                          fontSize: Dimens.font12,
+                                          color: state.themeColors.gray,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                                Align(
+                                  child: Container(
+                                    margin: EdgeInsets.all(14),
+                                    child: Icon(
+                                      Icons.settings_outlined,
+                                      color: state.themeColors.lightGray,
+                                      size: 20,
+                                    ),
+                                  ),
+                                  alignment: AlignmentDirectional.bottomEnd,
+                                )
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
