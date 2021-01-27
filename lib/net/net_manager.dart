@@ -27,7 +27,7 @@ void setInitDio({
   _interceptors = interceptors ?? _interceptors;
 }
 
-typedef NetSuccessCallback<T> = Function(T data);
+typedef NetSuccessCallback<T> = Function(String msg, T data);
 typedef NetSuccessListCallback<T> = Function(List<T> data);
 typedef NetErrorCallback = Function(int code, String msg);
 
@@ -79,8 +79,7 @@ class Net {
       final String data = response.data.toString();
 
       final bool isCompute = data.length > 10 * 1024;
-      final Map<String, dynamic> _map =
-          isCompute ? await compute(parseData, data) : parseData(data);
+      final Map<String, dynamic> _map = isCompute ? await compute(parseData, data) : parseData(data);
       return RootData<T>.fromJson(_map);
     } catch (e) {
       debugPrint(e.toString());
@@ -114,7 +113,7 @@ class Net {
     ).then<void>((RootData<T> result) {
       if (result.code == 0) {
         if (onSuccess != null) {
-          onSuccess(result.data);
+          onSuccess(result.msg, result.data);
         }
       } else {
         _onError(result.code, result.msg, onError);
@@ -146,7 +145,7 @@ class Net {
     )).asBroadcastStream().listen((result) {
       if (result.code == 0) {
         if (onSuccess != null) {
-          onSuccess(result.data);
+          onSuccess(result.msg, result.data);
         }
       } else {
         _onError(result.code, result.msg, onError);
