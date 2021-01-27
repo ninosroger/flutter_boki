@@ -2,9 +2,9 @@ import 'package:drawerbehavior/drawerbehavior.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_boki/global_store/state.dart';
-import 'package:flutter_boki/page/home/drawer/state.dart';
 import 'package:flutter_boki/resources/colors.dart';
 
+import 'drawer/state.dart';
 import 'hover_header_vm.dart';
 import 'hover_offset_info.dart';
 

@@ -1,10 +1,9 @@
-import 'package:flutter_boki/common/global_field.dart';
-import 'package:flutter_boki/common/parameter.dart';
-import 'package:flutter_boki/resources/colors.dart';
+import '../resources/res.dart';
+import '../common/parameter.dart';
+import '../common/global_field.dart';
 
 ///获取主题名称
-String getThemeName() =>
-    GlobalField.prefs.getString(Parameters.prefsThemeName) ?? "light";
+String getThemeName() => GlobalField.prefs.getString(Parameters.prefsThemeName) ?? "light";
 
 ///获取主题色对象
 ThemeColors getThemeColorsForName(String themeName) {

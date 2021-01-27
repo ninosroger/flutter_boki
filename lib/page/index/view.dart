@@ -1,14 +1,11 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boki/global_store/state.dart';
-import 'package:flutter_boki/global_store/store.dart';
+import 'package:flutter_boki/global_store/global_store.dart';
 import 'package:flutter_boki/page/boki/page.dart';
 import 'package:flutter_boki/page/chart/page.dart';
 import 'package:flutter_boki/page/home/page.dart';
 import 'package:flutter_boki/page/own/page.dart';
-import 'package:flutter_boki/resources/dimens.dart';
-import 'package:flutter_boki/resources/gaps.dart';
-import 'package:flutter_boki/resources/styles.dart';
+import 'package:flutter_boki/resources/res.dart';
 
 import 'action.dart';
 import 'state.dart';

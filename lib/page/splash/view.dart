@@ -1,8 +1,7 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boki/resources/dimens.dart';
-import 'package:flutter_boki/resources/styles.dart';
+import 'package:flutter_boki/resources/res.dart';
 import 'package:lottie/lottie.dart';
 
 import 'action.dart';

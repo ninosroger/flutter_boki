@@ -1,10 +1,8 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boki/resources/dimens.dart';
-import 'package:flutter_boki/resources/styles.dart';
-import 'package:flutter_boki/route/router_utils.dart';
-import 'package:flutter_boki/route/routers.dart';
+import 'package:flutter_boki/resources/res.dart';
+import 'package:flutter_boki/route/route.dart';
 import 'package:lottie/lottie.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

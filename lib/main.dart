@@ -3,21 +3,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'application.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_boki/common/sql.dart';
-import 'package:flutter_boki/net/api.dart';
-import 'package:flutter_boki/net/net_manager.dart';
-import 'package:flutter_boki/route/routers.dart';
-import 'package:flutter_boki/util/event_bus.dart';
-import 'package:flutter_boki/util/prefs_utils.dart';
 import 'package:logger/logger.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
 import 'common/global_field.dart';
+import 'common/sql.dart';
+import 'net/net.dart';
 
 import 'global_store/action.dart';
 import 'global_store/store.dart';
 import 'net/intercept.dart';
+import 'route/route.dart';
+import 'util/event_bus.dart';
+import 'util/prefs_utils.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized(); //添加此处代码是为了防止下句代码报错

@@ -1,7 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
 import 'package:fluro/fluro.dart';
-import 'package:flutter_boki/global_store/state.dart';
-import 'package:flutter_boki/global_store/store.dart';
+import '../global_store/global_store.dart';
 
 Handler getPageHandler(Page<Object, dynamic> page) {
   return Handler(

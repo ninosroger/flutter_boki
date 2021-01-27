@@ -1,6 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_boki/page/home/component.dart';
 
+import 'component.dart';
 import 'drawer/component.dart';
 import 'effect.dart';
 import 'reducer.dart';

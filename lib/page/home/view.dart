@@ -4,9 +4,7 @@ import 'package:drawerbehavior/drawerbehavior.dart';
 import 'package:fish_redux/fish_redux.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_boki/resources/dimens.dart';
-import 'package:flutter_boki/resources/gaps.dart';
-import 'package:flutter_boki/resources/styles.dart';
+import 'package:flutter_boki/resources/res.dart';
 import 'package:flutter_boki/widget/dotted_decoration.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
@@ -402,7 +400,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                             ),
                                           ),
                                         ],
-                                      )
+                                      ),
                                     ],
                                   ),
                                 ),

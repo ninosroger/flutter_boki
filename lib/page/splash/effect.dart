@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_boki/route/router_utils.dart';
-import 'package:flutter_boki/route/routers.dart';
+import 'package:flutter_boki/route/route.dart';
 
 import 'action.dart';
 import 'state.dart';
