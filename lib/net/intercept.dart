@@ -37,7 +37,6 @@ class LoggingInterceptor extends Interceptor {
 }
 
 class AdapterInterceptor extends Interceptor {
-  static const String _keyFailureFormat = '{\"code\":%d,\"msg\":\"%s\"}';
 
   @override
   Future onResponse(Response response) {

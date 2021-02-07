@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_boki/common/global_field.dart';
 import 'package:flutter_boki/entity/root_data.dart';
 
@@ -102,6 +103,7 @@ class Net {
     Map<String, dynamic> queryParameters,
     CancelToken cancelToken,
     Options options,
+    BuildContext context,
   }) {
     return _request<T>(
       method.value,
@@ -134,6 +136,7 @@ class Net {
     Map<String, dynamic> queryParameters,
     CancelToken cancelToken,
     Options options,
+    BuildContext context,
   }) {
     Stream.fromFuture(_request<T>(
       method.value,
