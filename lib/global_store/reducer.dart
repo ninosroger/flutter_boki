@@ -1,5 +1,5 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_boki/util/prefs_utils.dart';
+import '../util/prefs_utils.dart';
 
 import 'action.dart';
 import 'state.dart';
