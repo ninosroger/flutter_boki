@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_boki/common/global_field.dart';
-import 'package:flutter_boki/entity/root_data.dart';
+import '../common/global_field.dart';
+import '../entity/root_data.dart';
 
 import 'net_error.dart';
 

@@ -1,4 +1,4 @@
-import 'package:flutter_boki/generated/json/base/json_convert_content.dart';
+import '../generated/json/base/json_convert_content.dart';
 
 class RootData<T> {
   int code;

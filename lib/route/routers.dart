@@ -1,7 +1,8 @@
 import 'package:fluro/fluro.dart';
-import 'package:flutter_boki/page/index/page.dart';
-import 'package:flutter_boki/page/navigation/page.dart';
-import 'package:flutter_boki/page/splash/page.dart';
+
+import '../page/index/page.dart';
+import '../page/navigation/page.dart';
+import '../page/splash/page.dart';
 
 import 'router_handlers.dart';
 

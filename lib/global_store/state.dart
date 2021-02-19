@@ -1,5 +1,6 @@
 import 'package:fish_redux/fish_redux.dart';
-import 'package:flutter_boki/resources/colors.dart';
+
+import '../resources/colors.dart';
 
 abstract class GlobalBaseState {
   ThemeColors themeColors;
