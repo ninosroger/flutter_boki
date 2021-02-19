@@ -527,7 +527,6 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                       ),
                     ),
                     //收支列表
-
                     Container(
                       width: double.infinity,
                       height: constraints.maxHeight - 178 - MediaQuery.of(viewService.context).padding.top,
