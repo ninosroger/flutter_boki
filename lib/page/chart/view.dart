@@ -35,7 +35,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: Dimens.font11,
+            fontSize: 11,
             color: state.themeColors.gray,
           ),
         ),
@@ -47,7 +47,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: Dimens.font11,
+            fontSize: 11,
             color: state.themeColors.gray,
           ),
         ),
@@ -57,7 +57,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: Dimens.font11,
+            fontSize: 11,
             color: state.themeColors.gray,
           ),
         ),
@@ -93,7 +93,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: Dimens.font14,
+                          fontSize: 14,
                           color: state.themeColors.black,
                         ),
                       ),
@@ -105,7 +105,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: Dimens.font16,
+                          fontSize: 16,
                           color: state.themeColors.red,
                         ),
                       ),
@@ -159,8 +159,8 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                   unselectedLabelColor: state.themeColors.lightGray,
                                   labelColor: state.themeColors.white,
                                   labelPadding: EdgeInsets.fromLTRB(14, 6, 14, 6),
-                                  labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font16),
-                                  unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: Dimens.font11),
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                                  unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 11),
                                 ),
                                 Expanded(
                                   child: Gaps.hSpace10,
@@ -256,7 +256,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                         maxLines: 1,
                                                         overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize: Dimens.font11,
+                                                          fontSize: 11,
                                                           color: state.themeColors.gray,
                                                         ),
                                                       ),
@@ -268,7 +268,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                         maxLines: 1,
                                                         overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize: Dimens.font11,
+                                                          fontSize: 11,
                                                           color: state.themeColors.gray,
                                                         ),
                                                       ),
@@ -278,7 +278,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                         maxLines: 1,
                                                         overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize: Dimens.font11,
+                                                          fontSize: 11,
                                                           color: state.themeColors.gray,
                                                         ),
                                                       ),
@@ -356,7 +356,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                         maxLines: 1,
                                                         overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize: Dimens.font11,
+                                                          fontSize: 11,
                                                           color: state.themeColors.gray,
                                                         ),
                                                       ),
@@ -368,7 +368,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                         maxLines: 1,
                                                         overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize: Dimens.font11,
+                                                          fontSize: 11,
                                                           color: state.themeColors.gray,
                                                         ),
                                                       ),
@@ -378,7 +378,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                                         maxLines: 1,
                                                         overflow: TextOverflow.ellipsis,
                                                         style: TextStyle(
-                                                          fontSize: Dimens.font11,
+                                                          fontSize: 11,
                                                           color: state.themeColors.gray,
                                                         ),
                                                       ),
@@ -434,7 +434,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    fontSize: Dimens.font18,
+                                    fontSize: 18,
                                     color: state.themeColors.black,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -474,7 +474,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                       '月',
                                       style: TextStyle(
                                         color: state.isMonthBtnSelect ? state.themeColors.white : state.themeColors.black,
-                                        fontSize: Dimens.font14,
+                                        fontSize: 14,
                                       ),
                                     ),
                                   ),
@@ -505,7 +505,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                       '年',
                                       style: TextStyle(
                                         color: !state.isMonthBtnSelect ? state.themeColors.white : state.themeColors.black,
-                                        fontSize: Dimens.font14,
+                                        fontSize: 14,
                                       ),
                                     ),
                                   ),
@@ -606,7 +606,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.black,
                                             ),
                                           ),
@@ -616,7 +616,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.black,
                                             ),
                                           ),
@@ -639,7 +639,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -649,7 +649,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -672,7 +672,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -682,7 +682,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -705,7 +705,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -715,7 +715,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -738,7 +738,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -748,7 +748,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -771,7 +771,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -781,7 +781,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.gray,
                                             ),
                                           ),
@@ -816,7 +816,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                            fontSize: Dimens.font11,
+                                            fontSize: 11,
                                             color: state.themeColors.gray,
                                           ),
                                         ),
@@ -828,7 +828,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
-                                        fontSize: Dimens.font18,
+                                        fontSize: 18,
                                         color: state.themeColors.red,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -859,7 +859,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                            fontSize: Dimens.font11,
+                                            fontSize: 11,
                                             color: state.themeColors.gray,
                                           ),
                                         ),
@@ -871,7 +871,7 @@ Widget buildView(ChartState state, Dispatch dispatch, ViewService viewService) {
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
-                                        fontSize: Dimens.font18,
+                                        fontSize: 18,
                                         color: state.themeColors.red,
                                         fontWeight: FontWeight.bold,
                                       ),

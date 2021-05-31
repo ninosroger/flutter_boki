@@ -43,7 +43,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: Dimens.font11,
+                          fontSize: 11,
                           color: state.themeColors.gray,
                         ),
                       ),
@@ -67,7 +67,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: Dimens.font11,
+                            fontSize: 11,
                             color: state.themeColors.white,
                           ),
                         ),
@@ -80,7 +80,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: Dimens.font18,
+                      fontSize: 18,
                       color: state.themeColors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -111,7 +111,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: Dimens.font11,
+                          fontSize: 11,
                           color: state.themeColors.gray,
                         ),
                       ),
@@ -135,7 +135,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(
-                            fontSize: Dimens.font11,
+                            fontSize: 11,
                             color: state.themeColors.white,
                           ),
                         ),
@@ -148,7 +148,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                      fontSize: Dimens.font18,
+                      fontSize: 18,
                       color: state.themeColors.black,
                       fontWeight: FontWeight.bold,
                     ),
@@ -172,7 +172,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: Dimens.font11,
+            fontSize: 11,
             color: state.themeColors.gray,
           ),
         ),
@@ -184,7 +184,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: Dimens.font11,
+            fontSize: 11,
             color: state.themeColors.gray,
           ),
         ),
@@ -194,7 +194,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(
-            fontSize: Dimens.font11,
+            fontSize: 11,
             color: state.themeColors.gray,
           ),
         ),
@@ -230,7 +230,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: Dimens.font14,
+                          fontSize: 14,
                           color: state.themeColors.black,
                         ),
                       ),
@@ -242,7 +242,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                          fontSize: Dimens.font16,
+                          fontSize: 16,
                           color: state.themeColors.red,
                         ),
                       ),
@@ -339,7 +339,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                     style: TextStyle(
                                       color: state.themeColors.white,
                                       fontWeight: FontWeight.bold,
-                                      fontSize: Dimens.font16,
+                                      fontSize: 16,
                                     ),
                                   ),
                                 ),
@@ -384,7 +384,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: Dimens.font12,
+                                              fontSize: 12,
                                               color: state.themeColors.white,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -414,7 +414,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          fontSize: Dimens.font12,
+                                          fontSize: 12,
                                           color: state.themeColors.gray,
                                         ),
                                       ),
@@ -470,7 +470,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
-                                        fontSize: Dimens.font11,
+                                        fontSize: 11,
                                         color: state.themeColors.white,
                                       ),
                                     ),
@@ -482,7 +482,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                           maxLines: 1,
                                           overflow: TextOverflow.ellipsis,
                                           style: TextStyle(
-                                            fontSize: Dimens.font25,
+                                            fontSize: 25,
                                             color: state.themeColors.white,
                                             fontWeight: FontWeight.bold,
                                           ),
@@ -492,7 +492,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                           child: Text(
                                             '天',
                                             style: TextStyle(
-                                              fontSize: Dimens.font11,
+                                              fontSize: 11,
                                               color: state.themeColors.white,
                                             ),
                                           ),
@@ -592,7 +592,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
-                                                  fontSize: Dimens.font11,
+                                                  fontSize: 11,
                                                   color: state.themeColors.gray,
                                                 ),
                                               ),
@@ -604,7 +604,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
-                                                  fontSize: Dimens.font11,
+                                                  fontSize: 11,
                                                   color: state.themeColors.gray,
                                                 ),
                                               ),
@@ -614,7 +614,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                                 maxLines: 1,
                                                 overflow: TextOverflow.ellipsis,
                                                 style: TextStyle(
-                                                  fontSize: Dimens.font11,
+                                                  fontSize: 11,
                                                   color: state.themeColors.gray,
                                                 ),
                                               ),
@@ -659,7 +659,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
-                                        fontSize: Dimens.font11,
+                                        fontSize: 11,
                                         color: state.themeColors.white,
                                       ),
                                     ),
@@ -683,7 +683,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          fontSize: Dimens.font11,
+                                          fontSize: 11,
                                           color: state.themeColors.white,
                                         ),
                                       ),
@@ -696,7 +696,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    fontSize: Dimens.font18,
+                                    fontSize: 18,
                                     color: state.themeColors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -721,7 +721,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
                                       style: TextStyle(
-                                        fontSize: Dimens.font11,
+                                        fontSize: 11,
                                         color: state.themeColors.white,
                                       ),
                                     ),
@@ -745,7 +745,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          fontSize: Dimens.font11,
+                                          fontSize: 11,
                                           color: state.themeColors.white,
                                         ),
                                       ),
@@ -758,7 +758,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    fontSize: Dimens.font18,
+                                    fontSize: 18,
                                     color: state.themeColors.white,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -804,7 +804,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
                                   color: state.themeColors.black,
-                                  fontSize: Dimens.font18,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
@@ -818,7 +818,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      fontSize: Dimens.font11,
+                                      fontSize: 11,
                                       color: state.themeColors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -830,7 +830,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          fontSize: Dimens.font18,
+                                          fontSize: 18,
                                           color: state.themeColors.black,
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -852,7 +852,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize: Dimens.font11,
+                              fontSize: 11,
                               color: state.themeColors.gray,
                             ),
                           ),
@@ -865,7 +865,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                 child: Text(
                                   '￥',
                                   style: TextStyle(
-                                    fontSize: Dimens.font16,
+                                    fontSize: 16,
                                     color: state.themeColors.red,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -878,7 +878,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                 overflow: TextOverflow.ellipsis,
                                 style: GoogleFonts.roboto(
                                   textStyle: TextStyle(
-                                    fontSize: Dimens.font40,
+                                    fontSize: 40,
                                     color: state.themeColors.red,
                                   ),
                                 ),
@@ -927,7 +927,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                 maxLines: 1,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  fontSize: Dimens.font11,
+                                  fontSize: 11,
                                   color: state.themeColors.black,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -939,7 +939,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
-                                      fontSize: Dimens.font18,
+                                      fontSize: 18,
                                       color: state.themeColors.black,
                                       fontWeight: FontWeight.bold,
                                     ),

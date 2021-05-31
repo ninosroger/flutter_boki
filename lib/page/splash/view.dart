@@ -46,7 +46,7 @@ Widget buildView(
                   state.second.toString(),
                   style: TextStyle(
                     color: state.themeColors.white,
-                    fontSize: Dimens.font14,
+                    fontSize: 14,
                   ),
                 ),
               ),

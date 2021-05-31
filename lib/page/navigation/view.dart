@@ -65,7 +65,7 @@ Widget buildView(NavigationState state, Dispatch dispatch, ViewService viewServi
                     state.currentIndex == 2.0 ? '进入' : '跳过',
                     style: TextStyle(
                       color: state.themeColors.white,
-                      fontSize: Dimens.font14,
+                      fontSize: 14,
                     ),
                   ),
                 ),

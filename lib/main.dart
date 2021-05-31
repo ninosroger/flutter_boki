@@ -1,18 +1,14 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_boki/global_store/global_store.dart';
 import 'application.dart';
 import 'package:dio/dio.dart';
 import 'package:logger/logger.dart';
-import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:sqflite/sqflite.dart';
 import 'common/global_field.dart';
-import 'common/sql.dart';
 import 'net/net.dart';
 
-import 'global_store/action.dart';
-import 'global_store/store.dart';
 import 'net/intercept.dart';
 import 'route/route.dart';
 import 'util/event_bus.dart';
@@ -24,8 +20,7 @@ void main() {
   init().then((value) => runApp(createApp()));
 
   if (Platform.isAndroid) {
-    SystemUiOverlayStyle systemUiOverlayStyle =
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
     SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
   }
 }
@@ -45,26 +40,6 @@ Future init() async {
   GlobalField.bus = EventBus();
   GlobalField.router = Routers.configureRouters();
   GlobalField.prefs = await SharedPreferences.getInstance();
-  GlobalField.logger =
-      Logger(printer: PrettyPrinter(printTime: true, colors: true));
-  GlobalField.database = openDatabase(
-    join(await getDatabasesPath(), Sqls.databaseName),
-    version: 1,
-    onCreate: (db, version) {
-      db.execute(Sqls.createUsersTable);
-      db.execute(Sqls.createLedgerTable);
-      db.execute(Sqls.createBannersTable);
-      db.execute(Sqls.createMessagesTable);
-      db.execute(Sqls.createPropertyTable);
-      db.execute(Sqls.createPasswordsTable);
-      db.execute(Sqls.createPiggyBankTable);
-      db.execute(Sqls.createBookkeepingTable);
-      db.execute(Sqls.createPiggyBankRecordTable);
-      db.execute(Sqls.createAutomaticInsertionTable);
-      db.execute(Sqls.createIncomeExpensesTypesTable);
-      return db;
-    },
-  );
-  GlobalStore.store
-      .dispatch(GlobalActionCreator.onchangeThemeColor(getThemeName()));
+  GlobalField.logger = Logger(printer: PrettyPrinter(printTime: true, colors: true));
+  GlobalStore.store.dispatch(GlobalActionCreator.onchangeThemeColor(getThemeName()));
 }
