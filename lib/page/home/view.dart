@@ -284,160 +284,219 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                 child: Stack(
                   children: [
                     Container(
-                      decoration: BoxDecoration(gradient: Styles.linearGradientTopYellowToBottomRedForLight),
-                      height: 250,
+                      width: double.infinity,
+                      height: double.infinity,
+                      decoration: BoxDecoration(
+                        color: state.themeColors.red,
+                      ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 250),
-                      height: constraints.maxHeight - 250,
-                      width: constraints.maxWidth,
-                      padding: EdgeInsets.fromLTRB(constraints.maxWidth * 0.2, 0, 0, 0),
-                      decoration: BoxDecoration(color: state.themeColors.white),
-                      child: Stack(
-                        alignment: AlignmentDirectional.topCenter,
+                      decoration: BoxDecoration(
+                        color: state.themeColors.chartGreen
+                        // gradient: Styles.linearGradientTopYellowToBottomRedForLight,
+                      ),
+                      padding: EdgeInsets.only(left: constraints.maxWidth * 0.1+14),
+                      height: constraints.maxHeight - 250 - MediaQuery.of(context).padding.top,
+                      child: ListView(
+                        physics: const BouncingScrollPhysics(),
                         children: [
-                          Container(
-                            width: 200,
-                            height: 280,
-                            margin: EdgeInsets.all(50),
-                            decoration: BoxDecoration(
-                              color: state.themeColors.white,
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(6.0),
-                                topRight: Radius.circular(14.0),
-                                bottomLeft: Radius.circular(6.0),
-                                bottomRight: Radius.circular(14.0),
+                          Row(
+                            children: [
+                              Gaps.hSpace14,
+                              Text(
+                                "生活账本",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: state.themeColors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18,
+                                ),
                               ),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: state.themeColors.lightGray,
-                                  offset: Offset(1, 1),
-                                  blurRadius: 8.0,
-                                  spreadRadius: 2.0,
+                              Expanded(
+                                child: Gaps.hSpace14,
+                              ),
+                              Text(
+                                "2021年05月21 创建",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: state.themeColors.white,
+                                  fontSize: 12,
                                 ),
-                              ],
-                            ),
-                            child: Stack(
-                              children: [
-                                //渐变封面
-                                Container(
-                                  width: 200,
-                                  height: 200,
-                                  alignment: Alignment.bottomLeft,
-                                  padding: EdgeInsets.fromLTRB(14, 0, 14, 8),
-                                  decoration: BoxDecoration(
-                                    gradient: Styles.linearGradientRedToYellowForLight,
-                                    borderRadius: BorderRadius.only(
-                                      topLeft: Radius.circular(6.0),
-                                      topRight: Radius.circular(14.0),
-                                    ),
+                              ),
+                              Gaps.hSpace14,
+                            ],
+                          ),
+                          Gaps.vSpace14,
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: constraints.maxHeight - 250 - MediaQuery.of(context).padding.top),
+                      height: 250,
+                      width: constraints.maxWidth,
+                      decoration: BoxDecoration(
+                        color: state.themeColors.white,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(16.0),
+                          topRight: Radius.circular(16.0),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            color: state.themeColors.lightGray,
+                            offset: Offset(1.0, 1.0),
+                            blurRadius: 8.0,
+                            spreadRadius: 2.0,
+                          ),
+                        ],
+                      ),
+                      child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) => index == 0
+                            ? SizedBox(
+                                width: constraints.maxWidth / 2 - (250 - MediaQuery.of(context).padding.top) / 1.4 / 2,
+                              )
+                            : Container(
+                                width: (250 - MediaQuery.of(context).padding.top) / 1.4,
+                                margin: EdgeInsets.fromLTRB(0, 20, 20, 20),
+                                decoration: BoxDecoration(
+                                  color: state.themeColors.white,
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(6.0),
+                                    topRight: Radius.circular(14.0),
+                                    bottomLeft: Radius.circular(6.0),
+                                    bottomRight: Radius.circular(14.0),
                                   ),
-                                  child: Text(
-                                    "生活账本",
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: TextStyle(
-                                      color: state.themeColors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: state.themeColors.lightGray,
+                                      offset: Offset(1, 1),
+                                      blurRadius: 8.0,
+                                      spreadRadius: 2.0,
                                     ),
-                                  ),
+                                  ],
                                 ),
-                                //虚线
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 8, 8, 8),
-                                  width: 192,
-                                  height: 264,
-                                  decoration: DottedDecoration(
-                                    color: state.themeColors.lightGray,
-                                    shape: Shape.line,
-                                    linePositions: [LinePosition.top, LinePosition.right, LinePosition.bottom],
-                                    dash: [4, 4],
-                                    borderRadius: BorderRadius.only(
-                                      topRight: Radius.circular(14.0),
-                                      bottomRight: Radius.circular(14.0),
-                                    ),
-                                  ),
-                                ),
-                                //记录天数
-                                Container(
-                                  height: 50,
-                                  margin: EdgeInsets.fromLTRB(14, 14, 14, 10),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.min,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        '一共记录了',
+                                child: Stack(
+                                  children: [
+                                    //渐变封面
+                                    Container(
+                                      width: (250 - MediaQuery.of(context).padding.top) / 1.4,
+                                      height: (250 - MediaQuery.of(context).padding.top) / 1.4,
+                                      alignment: Alignment.bottomLeft,
+                                      padding: EdgeInsets.fromLTRB(14, 0, 14, 5),
+                                      decoration: BoxDecoration(
+                                        gradient: Styles.linearGradientRedToYellowForLight,
+                                        borderRadius: BorderRadius.only(
+                                          topLeft: Radius.circular(6.0),
+                                          topRight: Radius.circular(14.0),
+                                        ),
+                                      ),
+                                      child: Text(
+                                        "生活账本",
                                         maxLines: 1,
                                         overflow: TextOverflow.ellipsis,
                                         style: TextStyle(
-                                          fontSize: 8,
                                           color: state.themeColors.white,
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 14,
                                         ),
                                       ),
-                                      Row(
-                                        crossAxisAlignment: CrossAxisAlignment.end,
+                                    ),
+                                    //虚线
+                                    Container(
+                                      margin: EdgeInsets.fromLTRB(0, 8, 8, 8),
+                                      decoration: DottedDecoration(
+                                        color: state.themeColors.lightGray,
+                                        shape: Shape.line,
+                                        linePositions: [LinePosition.top, LinePosition.right, LinePosition.bottom],
+                                        dash: [4, 4],
+                                        borderRadius: BorderRadius.only(
+                                          topRight: Radius.circular(14.0),
+                                          bottomRight: Radius.circular(14.0),
+                                        ),
+                                      ),
+                                    ),
+                                    //记录天数
+                                    Container(
+                                      height: 50,
+                                      margin: EdgeInsets.fromLTRB(14, 14, 14, 10),
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            '32',
+                                            '一共记录了',
                                             maxLines: 1,
                                             overflow: TextOverflow.ellipsis,
                                             style: TextStyle(
-                                              fontSize: 12,
+                                              fontSize: 8,
                                               color: state.themeColors.white,
-                                              fontWeight: FontWeight.bold,
                                             ),
                                           ),
-                                          Container(
-                                            padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
-                                            child: Text(
-                                              '天',
-                                              style: TextStyle(
-                                                fontSize: 8,
-                                                color: state.themeColors.white,
+                                          Row(
+                                            crossAxisAlignment: CrossAxisAlignment.end,
+                                            children: [
+                                              Text(
+                                                '32',
+                                                maxLines: 1,
+                                                overflow: TextOverflow.ellipsis,
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: state.themeColors.white,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
                                               ),
+                                              Container(
+                                                padding: EdgeInsets.fromLTRB(4, 0, 4, 0),
+                                                child: Text(
+                                                  '天',
+                                                  style: TextStyle(
+                                                    fontSize: 8,
+                                                    color: state.themeColors.white,
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    //账本信息
+                                    Container(
+                                      margin: EdgeInsets.fromLTRB(14, ((250 - MediaQuery.of(context).padding.top) / 1.4) + 5, 14, 10),
+                                      child: Column(
+                                        children: [
+                                          Text(
+                                            '共记录了 140 笔',
+                                            maxLines: 1,
+                                            overflow: TextOverflow.ellipsis,
+                                            style: TextStyle(
+                                              fontSize: 11,
+                                              color: state.themeColors.gray,
                                             ),
                                           ),
                                         ],
                                       ),
-                                    ],
-                                  ),
-                                ),
-                                //账本信息
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(14, 208, 14, 10),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        '共记录了 140 笔',
-                                        maxLines: 1,
-                                        overflow: TextOverflow.ellipsis,
-                                        style: TextStyle(
-                                          fontSize: 12,
-                                          color: state.themeColors.gray,
+                                    ),
+                                    Align(
+                                      child: Container(
+                                        margin: EdgeInsets.all(14),
+                                        child: Icon(
+                                          Icons.settings_outlined,
+                                          color: state.themeColors.lightGray,
+                                          size: 20,
                                         ),
                                       ),
-                                    ],
-                                  ),
+                                      alignment: AlignmentDirectional.bottomEnd,
+                                    )
+                                  ],
                                 ),
-                                Align(
-                                  child: Container(
-                                    margin: EdgeInsets.all(14),
-                                    child: Icon(
-                                      Icons.settings_outlined,
-                                      color: state.themeColors.lightGray,
-                                      size: 20,
-                                    ),
-                                  ),
-                                  alignment: AlignmentDirectional.bottomEnd,
-                                )
-                              ],
-                            ),
-                          ),
-                        ],
+                              ),
+                        itemCount: 4,
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
