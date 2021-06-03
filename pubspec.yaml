@@ -63,6 +63,8 @@ dependencies:
   flutter_staggered_animations: ^0.1.2
   #图表
   fl_chart: ^0.12.2
+  #card动效
+  slimy_card: ^1.0.4
 
 dev_dependencies:
   flutter_test:

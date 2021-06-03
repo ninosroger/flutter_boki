@@ -4,6 +4,7 @@ class ThemeColors {
   Color background = Color(0xFFF5F5F5);
   Color red = Color(0xFFFB6463);
   Color transparent = Color(0x00000000);
+  Color translucent = Color(0xC0FFFFFF);
   Color yellow = Color(0xFFFBB663);
   Color white = Color(0xFFFFFFFF);
   Color black = Color(0xFF333333);

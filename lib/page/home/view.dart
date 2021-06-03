@@ -10,6 +10,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:slimy_card/slimy_card.dart';
 
 import 'hover_header_vm.dart';
 import 'state.dart';
@@ -292,10 +293,9 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                     ),
                     Container(
                       decoration: BoxDecoration(
-                        color: state.themeColors.chartGreen
-                        // gradient: Styles.linearGradientTopYellowToBottomRedForLight,
+                        gradient: Styles.linearGradientTopYellowToBottomRedForLight,
                       ),
-                      padding: EdgeInsets.only(left: constraints.maxWidth * 0.1+14),
+                      padding: EdgeInsets.fromLTRB(constraints.maxWidth * 0.1 + 14, 0, 0, 0),
                       height: constraints.maxHeight - 250 - MediaQuery.of(context).padding.top,
                       child: ListView(
                         physics: const BouncingScrollPhysics(),
@@ -328,7 +328,604 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                               Gaps.hSpace14,
                             ],
                           ),
-                          Gaps.vSpace14,
+                          Gaps.vSpace10,
+                          Row(
+                            children: [
+                              Gaps.hSpace14,
+                              Text(
+                                "累计记账32天",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: state.themeColors.white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Expanded(
+                                child: Gaps.hSpace14,
+                              ),
+                              Text(
+                                "共记账140笔",
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  color: state.themeColors.white,
+                                  fontSize: 12,
+                                ),
+                              ),
+                              Gaps.hSpace14,
+                            ],
+                          ),
+                          Gaps.vSpace24,
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              InkWell(
+                                splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+                                highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+                                onTap: () {},
+                                child: Container(
+                                  height: 64,
+                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  margin: EdgeInsets.fromLTRB(12, 0, 12, 16),
+                                  decoration: BoxDecoration(
+                                    color: state.themeColors.translucent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16.0),
+                                      topRight: Radius.circular(16.0),
+                                      bottomLeft: Radius.circular(16.0),
+                                      bottomRight: Radius.circular(16.0),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 63.4,
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/icon_income_expenditure5.png",
+                                              width: 30,
+                                              height: 30,
+                                            ),
+                                            Gaps.hSpace10,
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '饮食',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计支出3200元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.red,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Gaps.vSpace5,
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '共记24笔',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计收入5220元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.lightGreen,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+                                highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+                                onTap: () {},
+                                child: Container(
+                                  height: 64,
+                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  margin: EdgeInsets.fromLTRB(12, 0, 12, 16),
+                                  decoration: BoxDecoration(
+                                    color: state.themeColors.translucent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16.0),
+                                      topRight: Radius.circular(16.0),
+                                      bottomLeft: Radius.circular(16.0),
+                                      bottomRight: Radius.circular(16.0),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 63.4,
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/icon_income_expenditure5.png",
+                                              width: 30,
+                                              height: 30,
+                                            ),
+                                            Gaps.hSpace10,
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '饮食',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计支出3200元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.red,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Gaps.vSpace5,
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '共记24笔',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计收入5220元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.lightGreen,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+                                highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+                                onTap: () {},
+                                child: Container(
+                                  height: 64,
+                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  margin: EdgeInsets.fromLTRB(12, 0, 12, 16),
+                                  decoration: BoxDecoration(
+                                    color: state.themeColors.translucent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16.0),
+                                      topRight: Radius.circular(16.0),
+                                      bottomLeft: Radius.circular(16.0),
+                                      bottomRight: Radius.circular(16.0),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 63.4,
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/icon_income_expenditure5.png",
+                                              width: 30,
+                                              height: 30,
+                                            ),
+                                            Gaps.hSpace10,
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '饮食',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计支出3200元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.red,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Gaps.vSpace5,
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '共记24笔',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计收入5220元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.lightGreen,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+                                highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+                                onTap: () {},
+                                child: Container(
+                                  height: 64,
+                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  margin: EdgeInsets.fromLTRB(12, 0, 12, 16),
+                                  decoration: BoxDecoration(
+                                    color: state.themeColors.translucent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16.0),
+                                      topRight: Radius.circular(16.0),
+                                      bottomLeft: Radius.circular(16.0),
+                                      bottomRight: Radius.circular(16.0),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 63.4,
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/icon_income_expenditure5.png",
+                                              width: 30,
+                                              height: 30,
+                                            ),
+                                            Gaps.hSpace10,
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '饮食',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计支出3200元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.red,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Gaps.vSpace5,
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '共记24笔',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计收入5220元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.lightGreen,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+                                highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+                                onTap: () {},
+                                child: Container(
+                                  height: 64,
+                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  margin: EdgeInsets.fromLTRB(12, 0, 12, 16),
+                                  decoration: BoxDecoration(
+                                    color: state.themeColors.translucent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16.0),
+                                      topRight: Radius.circular(16.0),
+                                      bottomLeft: Radius.circular(16.0),
+                                      bottomRight: Radius.circular(16.0),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 63.4,
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/icon_income_expenditure5.png",
+                                              width: 30,
+                                              height: 30,
+                                            ),
+                                            Gaps.hSpace10,
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '饮食',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计支出3200元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.red,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Gaps.vSpace5,
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '共记24笔',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计收入5220元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.lightGreen,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                              InkWell(
+                                splashColor: state.themeColors.lightGray, // 溅墨色（波纹色）
+                                highlightColor: state.themeColors.transparent, // 点击时的背景色（高亮色）
+                                onTap: () {},
+                                child: Container(
+                                  height: 64,
+                                  padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+                                  margin: EdgeInsets.fromLTRB(12, 0, 12, 30),
+                                  decoration: BoxDecoration(
+                                    color: state.themeColors.translucent,
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(16.0),
+                                      topRight: Radius.circular(16.0),
+                                      bottomLeft: Radius.circular(16.0),
+                                      bottomRight: Radius.circular(16.0),
+                                    ),
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        height: 63.4,
+                                        child: Row(
+                                          children: [
+                                            Image.asset(
+                                              "assets/images/icon_income_expenditure5.png",
+                                              width: 30,
+                                              height: 30,
+                                            ),
+                                            Gaps.hSpace10,
+                                            Expanded(
+                                              child: Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '饮食',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 14,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计支出3200元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.red,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Gaps.vSpace5,
+                                                  Row(
+                                                    children: [
+                                                      Text(
+                                                        '共记24笔',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.black,
+                                                        ),
+                                                      ),
+                                                      Expanded(
+                                                        child: Gaps.hSpace20,
+                                                      ),
+                                                      Text(
+                                                        '累计收入5220元',
+                                                        maxLines: 1,
+                                                        overflow: TextOverflow.ellipsis,
+                                                        style: TextStyle(
+                                                          fontSize: 12,
+                                                          color: state.themeColors.lightGreen,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -356,11 +953,11 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (context, index) => index == 0
                             ? SizedBox(
-                                width: constraints.maxWidth / 2 - (250 - MediaQuery.of(context).padding.top) / 1.4 / 2,
+                                width: constraints.maxWidth / 2 - (220 - MediaQuery.of(context).padding.top) / 1.4 / 2,
                               )
                             : Container(
-                                width: (250 - MediaQuery.of(context).padding.top) / 1.4,
-                                margin: EdgeInsets.fromLTRB(0, 20, 20, 20),
+                                width: (220 - MediaQuery.of(context).padding.top) / 1.4,
+                                margin: EdgeInsets.fromLTRB(0, 30, 30, 30),
                                 decoration: BoxDecoration(
                                   color: state.themeColors.white,
                                   borderRadius: BorderRadius.only(
@@ -382,8 +979,8 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                   children: [
                                     //渐变封面
                                     Container(
-                                      width: (250 - MediaQuery.of(context).padding.top) / 1.4,
-                                      height: (250 - MediaQuery.of(context).padding.top) / 1.4,
+                                      width: (220 - MediaQuery.of(context).padding.top) / 1.4,
+                                      height: (220 - MediaQuery.of(context).padding.top) / 1.4,
                                       alignment: Alignment.bottomLeft,
                                       padding: EdgeInsets.fromLTRB(14, 0, 14, 5),
                                       decoration: BoxDecoration(
@@ -465,7 +1062,7 @@ Widget buildView(HomeState state, Dispatch dispatch, ViewService viewService) {
                                     ),
                                     //账本信息
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(14, ((250 - MediaQuery.of(context).padding.top) / 1.4) + 5, 14, 10),
+                                      margin: EdgeInsets.fromLTRB(14, ((220 - MediaQuery.of(context).padding.top) / 1.4) + 5, 14, 10),
                                       child: Column(
                                         children: [
                                           Text(
