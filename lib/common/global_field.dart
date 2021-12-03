@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../util/event_bus.dart';
 
 class GlobalField {
-  static Router router;
+  static FluroRouter router;
   static Logger logger;
   static SharedPreferences prefs;
   static EventBus bus;

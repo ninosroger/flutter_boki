@@ -11,8 +11,8 @@ class Routers {
   static String index = "/index";
   static String navigation = "/navigation";
 
-  static Router configureRouters() {
-    final router = Router();
+  static FluroRouter configureRouters() {
+    final router = FluroRouter();
     router.define(root, handler: getPageHandler(SplashPage()));
     router.define(index, handler: getPageHandler(IndexPage()));
     router.define(navigation, handler: getPageHandler(NavigationPage()));
